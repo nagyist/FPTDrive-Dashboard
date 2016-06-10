@@ -7,7 +7,7 @@ var app = express();
 var models   = require('./model/');
 var staticData = 1565;
 
-app.set('port', 8080);	
+app.set('port', 80);	
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
