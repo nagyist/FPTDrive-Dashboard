@@ -1,0 +1,48 @@
+<div class="search-bg">
+    <img src="images/route-bg.jpg" />
+    <div class="clear-fix">&nbsp;</div>
+</div>
+<div class="container">
+    <div class="route-search-box col-md-6 col-md-offset-3">
+        <h1>CHOOSE ROUTE</h1>
+        <div class="select-wrapper">
+        <select name="sltBusNumber" id="sltBusNumber" ng-change="filterResult()" ng-model="sltId">
+            <option ng-repeat="id in ids" value="{{id}}">{{id}}</option>
+        </select>
+        </div>
+        <div class=" clear-fix">&nbsp;</div>
+    </div>
+
+    <div class="route-result">
+        <table class="table table-striped table-hover iot-table">
+		<thead>
+			<td><strong>ROUTE</strong></td>
+			<td><strong>TIME</strong></td>
+			<td><strong>DEPART</strong></td>
+			<td><strong>RETURN</strong></td>
+			<td><strong>MINUTES/STRIP</strong></td>
+			<td><strong>&nbsp;</strong></td>
+		</thead>
+
+        <tr ng-repeat="(id, item) in routes | filter: isSelected" class="iot-row">
+            <td><strong>{{item._id}}</strong></td>
+            <td>{{item._time}}</td>
+            <td>{{item._depart}}</td>
+            <td>{{item._return}}</td>
+            <td>{{item._min}}</td>
+            <td><i class="mdi-file-file-download"></i><span> Details</span></td>
+        </tr>
+	</table>	
+        <div class="iot-paging">
+            <ul class="pagination">
+                <li class="disabled"><a href="javascript:void(0)">«</a></li>
+                <li class="active"><a href="javascript:void(0)">1</a></li>
+                <li><a href="javascript:void(0)">2</a></li>
+                <li><a href="javascript:void(0)">3</a></li>
+                <li><a href="javascript:void(0)">4</a></li>
+                <li><a href="javascript:void(0)">5</a></li>
+                <li><a href="javascript:void(0)">»</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

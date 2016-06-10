@@ -1,0 +1,59 @@
+<style type="text/css">
+   
+
+</style>
+
+<div class="row main-dashboard">
+    <div class="col-md-12 gmap-dashboard">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
+          <ui-gmap-markers idKey="'id'" models="markers" coords="'self'" icon="'icon'" click="onClickMarker">
+          </ui-gmap-markers>
+        </ui-gmap-google-map>
+    </div>
+    <div class="col-md-12 summary-dashboard ">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="rectangular-box">
+                    <div class="border-radius-tex-running-bus text-kpi-total-running">
+                        <h5 class="bold">Total running bus</h5>
+                    </div>
+                    <h2 class="text-content">{{totalRunningBus}}</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="rectangular-box">
+                    <div class="border-radius-tex-accept-report">
+                        <h5 class="bold"> Accept Report </h5>
+                    </div>
+                    <h4 class="text-content text-color-kpi" > Critical: <span>{{acceptReportCritical}}</span></h4>
+                    <h4 class="text-content text-color-kpi" > Minor: <span>{{acceptReportMinnor}}</span></h4>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="rectangular-box">
+                    <div class="border-radius-tex-total-flue">
+                        <a href="/#/monitoring"><h5 class="bold">Total Fuel Consumption Today</h5></a>
+                    </div>
+                    <h2 class="text-content">{{totalFuel}}</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="rectangular-box">
+                    <div id="fuel-consumtion" style="text-align:center"></div>
+                    <p class="bold text-center">Fuel Consumption by Bus</p>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angucomplete-alt/angucomplete-alt.css" />
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+</head>
+
+
+    
+
+<body ng-app="fptdriveApp" ng-controller="BaseCtrl" onload="">
+    <div id="cover">
+        <img src="images/loading.gif" style="padding-top: 20%">
+
+    </div>
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Add your site or application content here -->
+    <div>
+    <div class="header">
+        <div class="navbar navbar-default navbar-material-red" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#/"><span><img style="max-width:100px; max-height: 60px;  margin-right: 1px;margin-left: -10px" src="/images/logo.png"/></span> <b>&nbsp;FPT Drive</b></a>
+                </div>
+                <div  class="collapse navbar-collapse" id="js-navbar-collapse" >
+                    <ul ng-show="globals.currentUser" class="nav navbar-nav navbar-right" style="font-size:11px" >
+                        <!-- <li><a href="#/login" class="pull-right">
+                            <i class="fa fa-envelope fa-2x"></i>
+                            <span class="badge" style="width: auto;height: auto;margin: 0;position:relative;top:-2rem;right:1.5rem;background-color:rgb(255, 111, 0">{{numberMessage}}</span></a></li>
+                        <li><a href="#/login" class="pull-right"><i class="fa fa-bell fa-2x"> </i>
+                            <span class="badge" style="width: auto;height: auto;margin: 0;position:relative;top:-2rem;right:1.5rem;background-color:Orange">{{numberNotification}}</span></a>
+                            </li>
+                         -->
+                         <li><a ng-click="logout()" class="pull-right"><i class="mdi-action-account-circle"></i><span style="margin-left:1px; margin-top: -2px;"> <b style="font-size:16px">{{globals.currentUser.username}}</b></span></a></li>
+                        <li><a class="open-profile" data-toggle="dropdown"><i class="fa fa-angle-down fa-2x"></i> </a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sub-navbar shadow-z-1" ng-show="globals.currentUser" role="navigation">
+            <div class="container">
+                <a href="/#/dashboard" class="btn btn-default btn-header">
+                    <i class="fa fa-home"></i>&nbsp;Dashboard
+                </a>
+                <a href="/#/monitoring" class="btn btn-default btn-header">
+                    <i class="fa fa-eye"></i>&nbsp;Live Monitor
+                </a>
+                <!-- <a href="/#/alert" class="btn btn-default btn-header">
+                    <i class="fa fa-line-chart"></i>&nbsp;Analytics
+                </a> -->
+                <a href="/#/managedevice" class="btn btn-default btn-header">
+                    <i class="fa fa-tablet"></i>&nbsp;Device Management
+                </a>
+                <a href="/#/alert" class="btn btn-default btn-header">
+                    <i class="fa fa-line-chart"></i>&nbsp;Alerts
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container iot-main-content">
+        <div ng-view=""></div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>Copyright 2015 © FPT Software</p>
+        </div>
+    </div>
+    </div>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+    ! function(A, n, g, u, l, a, r) {
+        A.GoogleAnalyticsObject = l, A[l] = A[l] || function() {
+                (A[l].q = A[l].q || []).push(arguments)
+            }, A[l].l = +new Date, a = n.createElement(g),
+            r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+    }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+    </script>
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angucomplete-alt/angucomplete-alt.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/Chart.js/Chart.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-flot/angular-flot.js"></script>
+    <script src='bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap-material-design/dist/js/material.js"></script>
+    <script src="bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
+    <!--<script src="bower_components/moment/moment.js"></script>-->
+    <!--<script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>-->
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/angular-socket-io/socket.js"></script>
+    <script src="bower_components/socket.io-client/socket.io.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <script type="text/javascript">
+    $.material.init()
+    </script>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/alert.js"></script>
+    <script src="scripts/controllers/monitoring.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/services/authentication.js"></script>
+    <script src="scripts/services/socketfactory.js"></script>
+    <script src="scripts/controllers/base.js"></script>
+    <script src="scripts/controllers/routeinformation.js"></script>
+    <script src="scripts/controllers/managedevice.js"></script>
+    <script src="scripts/controllers/test.js"></script>
+    <script src="scripts/controllers/managedevice.js"></script>
+    <script src="scripts/services/devicefactory.js"></script>
+    <script src="scripts/services/busfactory.js"></script>
+    <!-- endbuild -->
+</body>
+
+<script type="text/javascript">
+    $(window).on('load', function() {
+   $("#cover").hide();
+});
+</script>
+    
+</html>
+

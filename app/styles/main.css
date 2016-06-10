@@ -1,0 +1,655 @@
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+body {
+    padding: 0;
+}
+
+
+ .slice text {
+            font-size: 12pt;
+            font-family: Arial;
+        }   
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+
+
+/* Custom page header */
+
+.header {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+/* Make the masthead heading the same height as the navigation */
+
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+
+/* Custom page footer */
+
+.footer {
+    padding-top: 19px;
+    color: #ccc;
+    border-top: 1px solid #e5e5e5;
+    background-color: black;
+    position: fixed;
+    z-index: 9998;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+/* Custom css */
+
+.gmap-dashboard .angular-google-map-container {
+    position: relative;
+    margin-top: 10px;
+    height: 456px;
+    width: 100%;
+}
+.main-dashboard {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Active table list*/
+
+.trafice-violation{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.iot-mon-content .angular-google-map-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+}
+
+.navbar-material-red {
+    margin-bottom: 0px;
+}
+.border-radius-tex-running-bus{
+  border-radius: 20px;
+  padding: 0.2em 0.2em;
+  background-color:#ff6633;
+  text-align: center;
+  color: white;
+}
+.border-radius-tex-accept-report{
+  border-radius: 20px;
+  padding: 0.2em 0.2em;
+  background-color:#ff6666;
+  text-align: center;
+  color: white;
+}
+.border-radius-tex-total-flue{
+  border-radius: 20px;
+  padding: 0.2em 0.2em;
+  background-color:#3366ff;
+  text-align: center;
+  color: white;
+}
+.rectangular-box{
+    margin-top: 20px;
+    width:100%;
+    height: 200px;
+    background-color: white;
+    padding: 10px;
+}
+.rectangular-box-active{
+    margin-top: 20px;
+    width:100%;
+    height: 400px;
+    background-color: white;
+    padding: 10px;
+}
+.line-margin{
+    margin-top:4px;
+    margin-bottom:4px;
+}
+
+.text-kpi-acept-report{
+    color:"#ff6633";
+    font-size: 12px;
+}
+.text-kpi-total-running{
+    color:"#ff6633";
+    font-size: 18px;
+}
+.retangular-box-heitht-400 {
+
+        height:350px!important;
+}
+.summary-dashboard{
+    position: relative;
+    margin-top: 10px;
+
+}
+
+.navbar-material-red [class*=mdi-] + span{
+    position: relative;
+    top: -5px;
+}
+
+.sub-navbar{
+    width: 100%;
+    height: 54px;
+    /*margin-top: -15px;*/
+    position: relative;
+    z-index: 2;
+    background-color: white;
+}
+/*
+a.pull-right{
+    width: 70px;
+    height: 60px;
+    padding:3px 15px;
+}
+*/
+
+.btn-header{
+    margin-top: 0px;
+    padding-top: 15px;
+    height: 54px;
+}
+
+.btn-header:hover{
+    border: none;
+    box-shadow: none!important;
+}
+
+.badge-danger{
+    background-color: #DE3230!important;
+}
+
+
+.bus-filter{
+    position: absolute;
+    z-index: 2;
+    background-color: white;
+    top:130px;
+    padding: 0px 5px;
+    width: auto;
+}
+
+.bus-filter .form-control{
+    width: 150px;
+    margin-right: 20px;
+}
+
+.bus-filter button.btn-material-blue{
+    padding:3px 15px;
+    margin: 5px 0px;
+}
+
+/* Login CSS */
+
+.login-wrapper{
+    background-image: url('/images/login-bg.png');
+    background-repeat: repeat-x;
+    background-position-y: 100%;
+    position: absolute;
+    top: 70px;
+    bottom: 50px;
+    left: 0px;
+    right: 0px;
+}
+
+.login-form{
+    background-color: white;
+    padding: 10px;
+    height: 100%;
+}
+
+.login-form .form-container{
+    margin: 10px 50px;
+}
+
+.login-form .form-title{
+    text-align: center;
+    color: gray;
+}
+
+.login-form .form-group{
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.login-form input.form-control{
+    border-radius: 0px;
+    border: 1px solid #aaa;
+    height: 50px;
+    width: 100%;
+    padding-left: 20px;
+}
+
+.login-form input[type='submit']{
+    width: 100%;
+    margin: 15px 0px;
+}
+.login-form label{
+    color: #aaa;
+}
+
+
+/*ROUTE CSS*/
+
+.route-search-box{
+    height: 250px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.route-search-box h1{
+    z-index: 2;
+    color: white;
+}
+
+.route-search-box .select-wrapper{
+    padding: 15px 15px;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.2);
+    width: auto;
+}
+
+.route-search-box option{
+    padding-left: 10px;
+}
+.route-search-box select{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+}
+.route-result [class*=mdi-]{
+    position: relative;
+    top: 5px;
+}
+
+.route-result{
+    margin-top: 30px;
+}
+/* Responsive: Portrait tablets and up */
+
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
+.iot-action-button{
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 16px !important;
+    padding: 6px !important;
+}
+
+.iot-row{
+    margin-bottom: 10px !important;
+
+}
+.iot-table{
+    border-collapse:separate !important;
+    border-spacing:0 5px !important;
+    margin-bottom: 0px !important;
+    font-size: 12px;
+}
+.iot-row th {
+    border: 0px !important;
+}
+.iot-row td{
+    border: 0px !important;
+    line-height: 30px !important;
+    margin-bottom: 5px !important;
+    background-color: #ffffff !important;
+}
+.iot-right{
+    text-align: right;
+}
+.iot-row .text-danger, .iot-row .text-default,.iot-row .text-warning, .iot-row .text-success{
+    margin: 0px !important;
+    line-height: 30px !important;
+    font-weight: bold;
+}
+.iot-row p span{
+    margin-right: 10px !important;
+}
+
+.iot-row strong{
+    margin-left: 15px;
+}
+.iot-paging{
+    text-align: center;
+}
+
+.iot-paging ul, .iot-paging li, .iot-paging a{
+    border: 0px !important;
+    background-color: transparent;
+}
+
+.search-box .col-md-3{
+    background-color: #ffffff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.search-box .form-control{
+    border: 1px solid #ccc;
+    background-image: none;
+    padding-left: 10px;
+}
+
+.search-box select{
+    border-radius: 0px;
+}
+
+.search-box [class*=mdi-]{
+    position: relative;
+    top: 5px;
+}
+.iot-border-right{
+    border-right: 1px solid #eeeeee;
+}
+.iot-main-content{
+    margin-bottom: 50px;
+    padding: 0px;
+}
+
+.clear-fix{
+    clear: both;
+    height: 0px !important;
+}
+.search-box{
+    background-color: #ffffff;
+    position: relative;
+    margin-bottom: 80px;
+}
+
+.search-bg{
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 250px;
+}
+.search-bg img{
+    width: 100%;
+    display: inline-block;
+}
+
+.input-group.date .input-group-addon{
+    background-color: #ffffff
+}
+
+.iot-mon{
+    background-color: #31698A; /*#000000;*/
+    padding: 0px;
+}
+
+.iot-mon select {
+    width: 90%;
+    height: 30px;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.iot-mon .list-group-item{
+    padding: 0px;
+    margin-bottom: 10px;
+}
+.iot-mon .row-action-primary i{
+    background-color: #ffffff!important;
+    width: 36px !important;
+    height: 36px !important;
+    color:  #000000 !important;
+    line-height: 36px !important;
+}
+.iot-mon .row-content{
+    min-height: 40px !important;
+}
+.iot-mon h6{
+    color: #ffffff !important;
+    font-size: 12px !important;
+    line-height: 36px !important;
+    text-transform: uppercase;
+}
+
+.iot-mon input{
+    background-color: #ffffff;
+    height: 36px !important;
+    width: 90%;
+    padding: 10px !important;
+    margin-bottom: 20px;
+}
+.iot-mon-bg{
+    position: relative;
+    width: 100%;
+    height: 300%;
+}
+.iot-mon-content h3{
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+.iot-mon-content ,.iot-center p{
+    font-size: 12px;
+}
+.iot-margin{
+    margin-bottom: 50px;
+}
+
+.iot-mon-bg .back{
+    background-color: #31698A;/*#000000;*/
+    height: 100%;
+    position: absolute;
+}
+.iot-mon-bg .white{
+    position: absolute;
+}
+.iot-mon-content{
+    background-color: #eeeeee !important;
+    height:100%;
+}
+.iot-mon-content h1{
+    font-weight: bold;
+    font-size: 60px;
+}
+.iot-center{
+    text-align: center;
+}
+.iot-mon-table, .iot-mon-table th{
+    text-align: center;
+}
+.passanger-up, .passanger-down,.fuel-up{
+    width: 50%;
+    margin-left:25%;
+    height: 10px;
+}
+.passanger-up{
+    background-color: #ff76a5;
+}
+.fuel-up{
+    background-color: #97bbcd
+}
+
+.passanger-down{
+    background-color: #d6313a;
+}
+
+.line-legend{
+    display: none;
+}
+
+.list-group-item:hover{
+    border-radius: 30px 0 0 30px;
+    color: #000000;
+    background: -webkit-linear-gradient(left, #31698A , #ffffff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #31698A, #ffffff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #31698A, #ffffff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #31698A , #ffffff); /* Standard syntax */
+}
+
+.iot-lbl-finish{
+    padding-left: 100px;
+}
+.bold{
+    font-weight: bold;
+}
+
+
+.center {
+    display: block;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-content{
+    color:red;
+    font-size:30px;
+    text-align:center;
+    margin:20px;
+    color:#3366ff;
+}
+
+.alert-sign{
+    font-size:20px;
+    text-align:center;
+}
+
+.alert-sign.high{
+    color: red;
+}
+
+.alert-sign.medium{
+    color: yellow;
+}
+
+.alert-sign.low{
+    color: violet;
+}
+/* custom Device Management */
+
+.iot-device-cover {
+    background-image: url('../images/device_manage_cover.png');
+    background-position: center;
+    height: 110px;
+    display: block;
+}
+
+.iot-device-searchbox{
+    /*background-image: url('../images/device_manage_cover_blur.png');*/
+    background-color: transparent;
+    background-position: center;
+    height: 40px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.status.active{
+    color: green;
+    border-radius: 20px;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    text-align: center;
+    border:1px solid green;
+    font-weight: 500;
+}
+
+.status.inactive{
+    color: #9e9e9e;
+    border-radius: 20px;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    border: 1px solid #9e9e9e;
+    text-align: center
+}
+.device-manage-table{
+    background-color: white;
+    background-position: center;
+
+}
+.device-manage-search-box{
+    /*margin-top: 115px;*/
+    background-color: azure;
+
+}
+
+.status.assets{
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+#cover {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left: 0;
+    background: #FFF;
+    z-index:9999;
+    text-align: center;
+}
+
+.temperature-bar{
+    width: 50%;
+    margin-left:25%;
+    height: 10px;
+    background-color: #ff76a5;    
+}
+
+.humidity-bar{
+    width: 50%;
+    margin-left:25%;
+    height: 10px;
+    background-color: #9dd6d6;    
+}
+
+.distance-bar{
+    width: 50%;
+    margin-left:25%;
+    height: 10px;
+    background-color: #ffb6c1;
+}
+
+.border-radius-tex-total-flue a:link{
+    color: white;
+}
+
+.border-radius-tex-total-flue a:visited {
+    color: white;
+}
+
+.border-radius-tex-total-flue a:hover{
+    color: white;
+}
+.border-radius-tex-total-flue a:active{
+    color: white;
+}

@@ -1,0 +1,94 @@
+<div class="iot-device-cover">
+
+</div>
+
+<div class="iot-device-searchbox">
+  <div class="row">
+    <div class="col-md-3 iot-border-right">
+      
+      <div class="form-group">
+          <div class="input-group date">
+              <input type="text" class="form-control" uib-datepicker-popup ng-model="fromDate" is-open="popupFromDate.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+              <span class="input-group-addon">
+                  <a class="glyphicon glyphicon-calendar" ng-click="openPopupFromDate()"></a>
+              </span>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 iot-border-right">
+      <div class="form-group">
+          <div class="input-group date">
+              <input type="text" class="form-control" uib-datepicker-popup ng-model="toDate" is-open="popupToDate.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+            <span class="input-group-addon">
+                  <a class="glyphicon glyphicon-calendar" ng-click="openPopupToDate()"></a>
+              </span>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+
+    </div>
+  </div>
+
+  <div class="col-md-3">
+
+  </div>
+</div>
+</div>
+
+
+<div class="container">
+  <table class="table table-striped table-hover iot-table">
+    <thead>
+    <td><strong>STATUS</strong></td>
+    <td><strong>DEVICEID</strong></td>
+    <td><strong>FIRMWARE VERSION</strong></td>
+    <td><strong>LASTEST UPDATE</strong></td>
+    <td><strong>DESCRIPTION</strong></td>
+    <td><strong>CONFIGURATION</strong></td>
+    </thead>
+
+    <tbody>
+    <tr class="iot-row shadow-z-1" ng-repeat="(id, asset) in assets_slice">
+      <td><h5 class="status {{asset.state}}"> {{asset.state}}</h5></td>
+      <td>{{asset.device_id}}</td>
+      <td>{{asset.firmware_version}}</td>
+      <td>{{asset.latest_update}}</td>
+      <td>{{asset.description}}</td>
+      <td>{{asset.configuration}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="container">
+    <div class="iot-paging">
+      <uib-pagination total-items="assets.length" ng-model="currentPage" items-per-page="itemPerPage"
+                      ng-change="changePage()">
+      </uib-pagination>
+    </div>
+  </div>
+</div>
+
+
+<!--<div class="input-group date datetimepicker">-->
+<!--<input type="text" class="form-control datetimepicker" placeholder="Update Start" id="dateUpdateStart">-->
+<!--<span class="input-group-addon">-->
+<!--<span class="glyphicon glyphicon-calendar"></span>-->
+<!--</span>-->
+<!--</div>-->
+
+<!--<table class="table table-striped table-hover iot-table">-->
+<!--<thead>-->
+<!--<td><strong>STATUS</strong></td>-->
+<!--<td><strong>DEVICEID</strong></td>-->
+<!--<td><strong>FIRMARE VERSION</strong></td>-->
+<!--<td><strong>LASTEST UPDATE</strong></td>-->
+<!--<td><strong>DESCRIPTION</strong></td>-->
+<!--<td><strong>CONFIGURATION</strong></td>-->
+<!--<td><strong>&nbsp;</strong></td>-->
+<!--</thead>-->
+
+
+<!--</table>-->
+
