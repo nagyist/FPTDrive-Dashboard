@@ -1,5 +1,6 @@
 {
   "name": "app",
+  "directory": "app/bower_components/",
   "version": "0.0.0",
   "dependencies": {
     "angucomplete-alt": "~1.1.0",
@@ -21,7 +22,8 @@
     "es5-shim": "~2.0.8",
     "socket.io-client": "^1.4.5",
     "angular-socket-io": "^0.7.0",
-    "angular-bootstrap": "^1.2.5"
+    "angular-bootstrap": "^1.2.5",
+    "express": "~0.0.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.5",

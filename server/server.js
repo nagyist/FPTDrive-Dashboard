@@ -110,13 +110,15 @@ device.on('connect', function() {
 
 device.on('message', function(topic, payload) {
     
-    var json = payload.toString('utf8', 0, payload.length - 1);
+    var json = payload.toString();//'utf8', 0, payload.length - 1
 	
+	console.log('json', json);
+	json = json + "fasdfasd";
 	if (json.lastIndexOf('}') != json.length - 1) {
 	    json = json.substring(0, json.lastIndexOf('}') + 1);
 	}
 	
-	console.log('server.onmessage', topic, json);
+	console.log('server.onmessage', topic + '----'+ json);
     io.emit(topic, json);
 });
 

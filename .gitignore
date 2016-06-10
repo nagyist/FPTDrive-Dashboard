@@ -1,2 +1,4 @@
 app/bower_components
 server/certs
+certs
+node_modules
