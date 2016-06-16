@@ -7,7 +7,7 @@ var app = express();
 var models   = require('./model/');
 var staticData = 1565;
 
-app.set('port', 80);	
+app.set('port', 8000);	
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
@@ -101,11 +101,11 @@ var device = awsIot.device({
 
 device.on('connect', function() {
     console.log('connected to AWS Iot Hub');
-    device.subscribe('topic/environment');
-    device.subscribe('topic/gps');
-    device.subscribe('topic/doorstatus');
-    device.subscribe('topic/camera');
-    device.subscribe('topic/face');
+    device.subscribe('/fptdrive/environment');
+    device.subscribe('/fptdrive/gps');
+    device.subscribe('/fptdrive/doorstatus');
+    device.subscribe('/fptdrive/cardistance');
+    device.subscribe('/fptdrive/face');
 });
 
 device.on('message', function(topic, payload) {
@@ -113,7 +113,6 @@ device.on('message', function(topic, payload) {
     var json = payload.toString();//'utf8', 0, payload.length - 1
 	
 	console.log('json', json);
-	json = json + "fasdfasd";
 	if (json.lastIndexOf('}') != json.length - 1) {
 	    json = json.substring(0, json.lastIndexOf('}') + 1);
 	}

@@ -234,7 +234,7 @@ controller('MainCtrl', [
 
     });
 
-    SocketFactory.on('topic/gps', function(msg) {
+    SocketFactory.on('/fptdrive/gps', function(msg) {
         msg = msg.replace(/\'/g, '"');
         var data = angular.fromJson(msg);
         var busId = DeviceFactory.getBus(data.device_id);

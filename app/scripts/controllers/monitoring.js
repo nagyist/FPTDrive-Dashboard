@@ -214,7 +214,7 @@ angular.module('fptdriveApp')
 
         }, 1000);
     
-        SocketFactory.on('topic/environment', function(msg) {
+        SocketFactory.on('/fptdrive/environment', function(msg) {
             msg = msg.replace(/\'/g, '"');
 
             var data = angular.fromJson(msg);
@@ -240,7 +240,7 @@ angular.module('fptdriveApp')
             }
         });
 
-        SocketFactory.on('topic/camera', function(msg) {
+        SocketFactory.on('/fptdrive/cardistance', function(msg) {
             msg = msg.replace(/\'/g, '"');
             var data = angular.fromJson(msg);
             var busId = DeviceFactory.getBus(data.device_id);
@@ -254,7 +254,7 @@ angular.module('fptdriveApp')
         });
 
 
-        SocketFactory.on('topic/gps', function(msg) {
+        SocketFactory.on('/fptdrive/gps', function(msg) {
             msg = msg.replace(/\'/g, '"');
             var data = angular.fromJson(msg);
             var busId = DeviceFactory.getBus(data.device_id);
@@ -270,7 +270,7 @@ angular.module('fptdriveApp')
         $scope.doorstate.shortstate;
         $scope.doorstate.longstate;
 
-        SocketFactory.on('topic/doorstatus', function(msg) {
+        SocketFactory.on('/fptdrive/doorstatus', function(msg) {
             msg = msg.replace(/\'/g, '"');
             var data = angular.fromJson(msg);
             var busId = DeviceFactory.getBus(data.device_id);
@@ -299,7 +299,7 @@ angular.module('fptdriveApp')
         $scope.facerg.drowsiness.shortstate;
         $scope.facerg.drowsiness.longstate;
 
-        SocketFactory.on('topic/face', function(msg) {
+        SocketFactory.on('/fptdrive/face', function(msg) {
             msg = msg.replace(/\'/g, '"');
             var data = angular.fromJson(msg);
             var busId = DeviceFactory.getBus(data.device_id);
