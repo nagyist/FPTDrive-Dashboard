@@ -19,7 +19,8 @@ controller('MainCtrl', [
     'uiGmapGoogleMapApi',
     'BusFactory',
     '$location',
-    function($scope, $interval, SocketFactory, DeviceFactory, uiGmapGoogleMapApi, BusFactory, $location){
+    '$sce',
+    function($scope, $interval, SocketFactory, DeviceFactory, uiGmapGoogleMapApi, BusFactory, $location, $sce){
 
 
     this.awesomeThings = [
@@ -37,7 +38,7 @@ controller('MainCtrl', [
     };
     $scope.options = {
         scrollwheel: false,
-        draggable: false
+        draggable: true
     };
     $scope.icons = {
         green: {
@@ -61,6 +62,18 @@ controller('MainCtrl', [
                 height: 25
             }
         }
+    };
+
+    $scope.windowOptions = {
+        visible: true
+    };
+
+    $scope.onClick = function() {
+        $scope.windowOptions.visible = !$scope.windowOptions.visible;
+    };
+
+    $scope.closeClick = function() {
+        $scope.windowOptions.visible = false;
     };
     
     var _markers = [
@@ -100,10 +113,6 @@ controller('MainCtrl', [
     if( typeof _.object === 'undefined' ) {
         _.object = _.zipObject;
     }
-
-
-
-
 
   var canvasWidth = 200, //width
       canvasHeight = 200,   //height
@@ -234,6 +243,11 @@ controller('MainCtrl', [
 
     });
 
+    // Sample bus for simulator
+    _markers[0].id = "33d1ddff-aeb8-38a1-a00d-3c2cf31bc62e";
+    _markers[0].latitude = 21.03021;
+    _markers[0].longitude = 105.78620666666667;
+
     SocketFactory.on('/fptdrive/gps', function(msg) {
         msg = msg.replace(/\'/g, '"');
         var data = angular.fromJson(msg);
@@ -246,17 +260,50 @@ controller('MainCtrl', [
 
 
     // uiGmapGoogleMapApi.then(function(maps) {
-    //     maps.event.addListener($scope.markers[0], 'click', function() {
+    //     maps.event.addListener($scope.markers[0], 'click', function(markers) {
     //         alert("Hellooo world");
     //     });
     // });
 
     $scope.onClickMarker = function(instance, event, marker) {
-        BusFactory.setSelectedBusID(marker.id);
-        $location.path("/monitoring");
-        console.log($location.path());
+        $scope.showWindow = true;
+        $scope.busInfo = DeviceFactory.getBusInfo(marker.id);
+        // $scope.busInfoOut = '';
+        // angular.forEach($scope.busInfo, function(value, key) {
+        //   console.log(value.name + ": " + value.value);
+        //   $scope.busInfoOut += value.name + ": " + value.value + "<br>";
+        // });
     }
-
     $interval(function(){},1000);
 
+}]);
+
+
+angular.module('fptdriveApp').
+controller('infoWindowCtrl', [
+  '$scope',
+  '$location',
+  'DeviceFactory',
+  'BusFactory',
+  function($scope, $location, DeviceFactory, BusFactory) {
+      $scope.switchToMonitoring = function(instance, event, marker) {
+        $location.path("/monitoring");
+      }
+      var busInfo = DeviceFactory.getBus();
+      $scope.busInfoOut = '';
+        angular.forEach(busInfo, function(value, key) {
+          console.log(value.name + ": " + value.value);
+          $scope.busInfoOut += "<strong>" + value.name + "</strong>"+ ": " + value.value + "<br>";
+      });
+}]);
+
+
+
+angular.module('fptdriveApp').
+filter('unsafe', [
+  '$sce',
+  function($sce) {
+    return function(val) {
+        return $sce.trustAsHtml(val);
+    };
 }]);
