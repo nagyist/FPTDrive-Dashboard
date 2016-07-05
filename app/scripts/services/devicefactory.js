@@ -4,13 +4,6 @@
 
 angular.module('fptdriveApp').
 factory('DeviceFactory', ['$http', function($http) {
-
-  var busInfos = [
-    [{"name":"ID", "value":"33d1ddff-aeb8-38a1-a00d-3c2cf31bc62e"},{"name":"Tuyen", "value":"00"},{"name":"Lo trinh", "value":"My Dinh - Cau Giay"}],
-    [{"name":"ID", "value":"02"}, {"name":"Tuyen", "value":"2b"}, {"name":"Lo trinh","value":""}],
-    [{"name":"ID", "value":"03"}, {"name":"Tuyen", "value":"2b"}, {"name":"Lo trinh","value":""}]
-  ];
-
   var device = {
     "c603d35d-2029-363e-a093-0c76a8a323f7": 1,
     "1e91a099-a339-3d39-b31d-76bead836864": 2,
@@ -32,34 +25,16 @@ factory('DeviceFactory', ['$http', function($http) {
     "cb1e8f1e-7682-30e3-ba61-9297642cb2df": 2,
     "737f3355-365d-3fc1-a435-78bfbc423731": 3,
     "fcaf47ae-b1d5-36e4-b3f7-eec35f7c9d9d": 4
-  };
 
-  var sharedBus = [];
+  };
 
   return {
     setDevice: function(){
       // Call to backend to get device relation from back-end
       // $http.get("api/assest/")
     },
-    // getBus: function (device_id) {
-    //   return device[device_id];
-    // },
-
-    getBusInfo: function (bus_id) {
-      for (i = 0; i < busInfos.length; i++) {
-        for (j = 0; j < busInfos[i].length; j++) {
-          if (busInfos[i][j].value == bus_id) {
-            sharedBus = busInfos[i];
-            return busInfos[i];     // return information about the desired bus
-          }   
-        }
-      }
-    },
-
-    getBus: function() {
-      // console.log("test get bus");
-      // console.log(sharedBus);
-      return sharedBus;
+    getBus: function (device_id) {
+      return device[device_id];
     }
   };
 }]);
