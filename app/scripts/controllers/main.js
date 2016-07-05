@@ -34,8 +34,45 @@ controller('MainCtrl', [
             "longitude": 105.803113
         },
         zoom: 14,
-        bounds: {}
+        bounds: {},
+        polygons: [{
+      id: 1,
+      geotracks: [
+        { latitude:21.03308, longitude:105.81386},
+{ latitude:21.0332, longitude:105.81385},
+{ latitude:21.03387, longitude:105.8141},
+{ latitude:21.03476, longitude:105.81443},
+{ latitude:21.03525, longitude:105.81456},
+{ latitude:21.03567, longitude:105.81472},
+{ latitude:21.03675, longitude:105.81501},
+{ latitude:21.0371, longitude:105.81513},
+{ latitude:21.0377, longitude:105.81528},
+{ latitude:21.03927, longitude:105.81578},
+{ latitude:21.04107, longitude:105.81633},
+{ latitude:21.04194, longitude:105.8166},
+{ latitude:21.04203, longitude:105.81673},
+{ latitude:21.04212, longitude:105.81697},
+{ latitude:21.0421, longitude:105.81842},
+{ latitude:21.04215, longitude:105.8185},
+{ latitude:21.04217, longitude:105.81851},
+{ latitude:21.04217, longitude:105.81871},
+{ latitude:21.04327, longitude:105.81859},
+{ latitude:21.04351, longitude:105.81855},
+{ latitude:21.04356, longitude:105.81876},
+{ latitude:21.04363, longitude:105.81929},
+{ latitude:21.04363, longitude:105.81956},
+{ latitude:21.04358, longitude:105.82029},
+{ latitude:21.04337, longitude:105.82163},
+{ latitude:21.0433, longitude:105.82196}
+      ],
+      
+    }],
     };
+    $scope.startDrawing = function() {
+  $scope.map.draw().then(function(path) {
+    //$scope.map.polygons.push({ path: path, fill: "#ff0000" });
+  });
+};
     $scope.options = {
         scrollwheel: false,
         draggable: true
