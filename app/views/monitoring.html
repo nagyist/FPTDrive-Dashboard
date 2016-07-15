@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 <div class="iot-mon-bg" ng-controller="MonitoringCtrl">
     <div class="col-md-6 back">
         &nbsp;
@@ -70,12 +72,23 @@
                 
                 <a class="list-group-item" ng-click="gotoPart('iot-part-humidity')">
                     <div class="row-action-primary">
-                        <i class="mdi-maps-directions-bus"></i>
+                        <!-- <i class="mdi-editor-bubble-chart"></i> -->
+                        <i class="material-icons">bubble_chart</i>
                     </div>
                     <div class="row-content">
                         <h6 class="list-group-item-heading">Humidity</h6>
                     </div>
                 </a>
+
+                <a class="list-group-item" ng-click="gotoPart('iot-part-speed')">
+                    <div class="row-action-primary">
+                        <i class="mdi-maps-directions-car"></i>
+                    </div>
+                    <div class="row-content">
+                        <h6 class="list-group-item-heading">Speed</h6>
+                    </div>
+                </a>
+
             </div>
         </div>
         <div class="col-md-9 iot-mon-content">
@@ -212,6 +225,7 @@
                     <p>Fuel</p>
                 </div>
             </div>
+
             <div class="clear">&nbsp;</div>
             <h3 id="iot-part-humidity">Humidity</h3>
             <div class="col-md-12 iot-box">
@@ -229,7 +243,25 @@
             </div>
             <div class="clear">&nbsp;</div>
 
-            
+            <div class="clear">&nbsp;</div>
+            <h3 id="iot-part-speed">Speed</h3>
+            <div class="col-md-12 iot-box">
+                <div class="col-md-9">
+                    <canvas id="speed" class="chart chart-line" chart-data="speedData" chart-labels="timeOfDay" chart-legend="true" chart-options="speedChartOptions" chart-colours="speedColours" chart-click="onClick">
+                    </canvas>
+                </div>
+                <div class="col-md-3 iot-extra"></div>
+                <div class="col-md-3 iot-bar"> 
+                    <div class="maxSpeed-bar">&nbsp;</div>
+                    <p>Maximum Speed (km/h)</p>
+                </div>
+                <div class="col-md-3 iot-bar">
+                    <div class="speed-bar">&nbsp;</div>
+                    <p>Average Speed (km/h)</p>
+                </div>
+            </div>
+            <div class="clear">&nbsp;</div>
+
         </div>
     </div>
 </div>

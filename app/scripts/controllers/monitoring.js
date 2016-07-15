@@ -18,7 +18,8 @@ angular.module('fptdriveApp')
         'DeviceFactory',
         'BusFactory',
         '$http',
-        function($scope, $location, $anchorScroll,$interval, uiGmapGoogleMapApi, SocketFactory, DeviceFactory, BusFactory, $http) {
+        '$filter',
+        function($scope, $location, $anchorScroll,$interval, uiGmapGoogleMapApi, SocketFactory, DeviceFactory, BusFactory, $http, $filter) {
         this.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
@@ -26,7 +27,7 @@ angular.module('fptdriveApp')
         ];
 
         $scope.options = {
-            draggable: false,
+            draggable: true,
             scrollwheel: false
         };
 
@@ -129,6 +130,19 @@ angular.module('fptdriveApp')
         };
 
 
+        // Speed
+        $scope.speedChartOptions = {
+            scaleShowGridLines: true,
+            bezierCurve: false,
+            animation: false,
+            // Boolean - Whether the scale should stick to integers, not floats even if drawing space is there
+            scaleOverride: true,
+            scaleSteps: 10,
+            scaleStepWidth: 10,
+            scaleStartValue: 0
+        };
+
+
         $scope.timelabel = ['', '', '', '', '', '', '', '', '', ''];
         $scope.pasengerData = [
             [5, 4, 5, 4, 3, 2, 1, 0, 5, 1],
@@ -153,6 +167,13 @@ angular.module('fptdriveApp')
             // [51, 51, 51, 50, 50, 50, 49, 49, 48, 48]
         ];
 
+        $scope.speedData = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],                         // Average Speed
+            [61, 61, 61, 55, 55, 46, 46, 50, 60, 70, 80, 60, 50, 55]            // Max Speed
+        ];
+
+
+        $scope.timeOfDay = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
         $scope.passengerColours = [
             // '#ff76a5', // red
@@ -173,11 +194,17 @@ angular.module('fptdriveApp')
             '#ff76a5'
         ];
 
+        $scope.speedColours = ['#009999','#ff6600'];
+
+
         $scope.totalPassenger = 32;
         $scope.busTemperature = 20;
         $scope.busFuel = 48;
         $scope.humidityNow = 50.0;
         $scope.distanceNow = 10.0;
+        $scope.busSpeed = 30.0;
+        $scope.maxSpeed = 45.0;
+
         $scope.gotoPart = function(id) {
             $location.hash(id);
             $anchorScroll();
@@ -208,11 +235,25 @@ angular.module('fptdriveApp')
             $scope.fuelData[0].push(busFuel);
             $scope.busFuel = busFuel;
 
-        //     var timestamp = Math.floor(Date.now() / 1000);
-        //     $scope.timelabel.shift();
-        //     $scope.timelabel.push(timestamp);
+            var timestamp = Date.now();
+            timestamp = $filter('date')(timestamp, "H:mm:ss");
+            // timestamp = $filter('date')(timestamp, "mediumTime");
+            $scope.timeOfDay.shift();
+            $scope.timeOfDay.push(timestamp);
 
-        }, 1000);
+            var busSpeed = parseFloat($scope.busSpeed - Math.random()*1.5 + Math.random()*1.5).toFixed(2);
+            $scope.speedData[0].shift();
+            $scope.speedData[0].push(busSpeed);
+
+            // var maxSpeed = parseFloat(busSpeed + Math.random()*5).toFixed(2);
+            var maxSpeed = $scope.speedData[1][0];
+            $scope.speedData[1].shift();
+            $scope.speedData[1].push(maxSpeed);
+
+            $scope.busSpeed = busSpeed;
+            $scope.maxSpeed = maxSpeed;
+
+        }, 3000);
     
         SocketFactory.on('/fptdrive/environment', function(msg) {
             msg = msg.replace(/\'/g, '"');

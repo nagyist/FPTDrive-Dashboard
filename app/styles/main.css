@@ -455,9 +455,25 @@ a.pull-right{
     font-weight: bold;
     padding: 10px 0;
 }
+/*.iot-mon-content ,.iot-wrapper p{
+    font-size: 12px;
+    height: 100%
+}*/
+
 .iot-mon-content ,.iot-center p{
     font-size: 12px;
 }
+
+.iot-bar{
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.iot-extra{
+    margin-top: 150px;
+}
+
 .iot-margin{
     margin-bottom: 50px;
 }
@@ -637,6 +653,20 @@ a.pull-right{
     margin-left:25%;
     height: 10px;
     background-color: #ffb6c1;
+}
+
+.speed-bar{
+    width: 50%;
+    margin-left:25%;
+    height: 10px;
+    background-color: #009999;
+}
+
+.maxSpeed-bar{
+    width: 50%;
+    margin-left:25%;
+    height: 10px;
+    background-color: #ff6600;
 }
 
 .border-radius-tex-total-flue a:link{
