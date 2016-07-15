@@ -22,9 +22,13 @@ angular
       'uiGmapgoogle-maps',
       'angucomplete-alt',
       'btford.socket-io'
-
-    ])
-    .config(function($routeProvider) {
+    ]).config(function(uiGmapGoogleMapApiProvider) {
+    	    uiGmapGoogleMapApiProvider.configure({
+		        key: ' AIzaSyA-em3ErVooX2PgREgCIlR4jSZ7mPUf20U',//fsb.fho@gmail.com
+		        v: '3.17',
+		        libraries: 'geometry'
+		    }); 
+    }).config(function($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/main.html',
