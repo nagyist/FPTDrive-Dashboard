@@ -1,4 +1,4 @@
-<div class="iot-mon-bg" ng-controller="MonitoringCtrl">
+<div class="iot-mon-bg" >
     <div class="col-md-6 back">
         &nbsp;
     </div>
@@ -9,7 +9,9 @@
         <div class="col-md-3 iot-mon">
             <h6>ID, bus</h6>
 
-            <select name="bus" id="selectedBus" ng-model="selectedBusID" ng-options="item.bus_id for item in busDictionary">
+            <select name="bus" id="selectedBus" ng-model="selectedBusID" 
+            			ng-options="item.bus_id for item in busDictionary"
+            			ng-change="updateBusId()">
             </select>
 
             <div class="list-group">
@@ -79,11 +81,23 @@
             </div>
         </div>
         <div class="col-md-9 iot-mon-content">
+        	<h3 id="iot-part-info">BUS Information</h3>
+	        	<p>
+	            	<span ng-repeat='(key, value) in bus_info'>
+	            		<span class="bold">{{value.name}}: </span> {{value.value}}<br/>
+	            	</span>
+	            </p>
             <h3 id="iot-part-gps">GPS</h3>
-            <p><span class="bold">Started: </span> 6:00 2/9/2015 <span class="bold iot-lbl-finish">Finish: </span> 6:00 25/9/2015 </P>
+            <p>
+            	<span class="bold">Started: </span> 6:00 2/9/2015 
+            	<span class="bold iot-lbl-finish">Finish: </span> 6:00 25/9/2015 
+            	<span class="bold iot-lbl-finish">Distance: </span> {{distance_to_end}} KM
+            </p>
             <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" bounds="map.bounds">
                 <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
                 </ui-gmap-marker>
+                <ui-gmap-polylines models="map.polygons" path="'geotracks'" stroke="map.lineStyle" static="true">
+  		  		</ui-gmap-polylines>
             </ui-gmap-google-map>
             <!-- <h3 id="iot-part-passengers">No of passengers up and down</h3>
             <div class="col-md-12 iot-box">

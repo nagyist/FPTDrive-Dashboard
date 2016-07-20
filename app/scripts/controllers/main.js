@@ -18,16 +18,14 @@ controller('MainCtrl', [
     'DeviceFactory',
     'uiGmapGoogleMapApi',
     'BusFactory',
+    'GeoCalc',
     '$location',
     '$sce',
-    function($scope, $interval, SocketFactory, DeviceFactory, uiGmapGoogleMapApi, BusFactory, $location, $sce){
+    function($scope, $interval, SocketFactory, DeviceFactory, uiGmapGoogleMapApi, BusFactory, GeoCalc, $location, $sce){
 
 
-    this.awesomeThings = [
-        'HTML5 Boilerplate',
-        'AngularJS',
-        'Karma'
-    ];
+    console.log("Init MainCtrl ");
+    
     $scope.map = {
         center: {
             "latitude": 21.0269591,
@@ -35,44 +33,8 @@ controller('MainCtrl', [
         },
         zoom: 14,
         bounds: {},
-        polygons: [{
-      id: 1,
-      geotracks: [
-        { latitude:21.03308, longitude:105.81386},
-{ latitude:21.0332, longitude:105.81385},
-{ latitude:21.03387, longitude:105.8141},
-{ latitude:21.03476, longitude:105.81443},
-{ latitude:21.03525, longitude:105.81456},
-{ latitude:21.03567, longitude:105.81472},
-{ latitude:21.03675, longitude:105.81501},
-{ latitude:21.0371, longitude:105.81513},
-{ latitude:21.0377, longitude:105.81528},
-{ latitude:21.03927, longitude:105.81578},
-{ latitude:21.04107, longitude:105.81633},
-{ latitude:21.04194, longitude:105.8166},
-{ latitude:21.04203, longitude:105.81673},
-{ latitude:21.04212, longitude:105.81697},
-{ latitude:21.0421, longitude:105.81842},
-{ latitude:21.04215, longitude:105.8185},
-{ latitude:21.04217, longitude:105.81851},
-{ latitude:21.04217, longitude:105.81871},
-{ latitude:21.04327, longitude:105.81859},
-{ latitude:21.04351, longitude:105.81855},
-{ latitude:21.04356, longitude:105.81876},
-{ latitude:21.04363, longitude:105.81929},
-{ latitude:21.04363, longitude:105.81956},
-{ latitude:21.04358, longitude:105.82029},
-{ latitude:21.04337, longitude:105.82163},
-{ latitude:21.0433, longitude:105.82196}
-      ],
-      
-    }],
     };
-    $scope.startDrawing = function() {
-  $scope.map.draw().then(function(path) {
-    //$scope.map.polygons.push({ path: path, fill: "#ff0000" });
-  });
-};
+	
     $scope.options = {
         scrollwheel: false,
         draggable: true
@@ -118,25 +80,29 @@ controller('MainCtrl', [
         id: 1,
         latitude: 0,
         longitude: 0,
-        icon: $scope.icons.green
+        icon: $scope.icons.green,
+        //markerOptions: {visible:false}
       },
       {
         id: 2,
         latitude: 0,
         longitude: 0,
-        icon: $scope.icons.green
+        icon: $scope.icons.green,
+        //markerOptions: {visible:false}
       },
       {
         id: 3,
         latitude: 0,
         longitude: 0,
-        icon: $scope.icons.green
+        icon: $scope.icons.green,
+        //markerOptions: {visible:false}
       },
       {
         id: 4,
         latitude: 0,
         longitude: 0,
-        icon: $scope.icons.green
+        icon: $scope.icons.green,
+        //markerOptions: {visible:false}
       },
     ];
 
@@ -161,18 +127,14 @@ controller('MainCtrl', [
         .attr("width", canvasWidth) //set the width of the canvas
         .attr("height", canvasHeight) //set the height of the canvas
         .append("svg:g") //make a group to hold our pie chart
-          .attr("transform", "translate(" + 1.5*outerRadius + "," + 1.5*outerRadius + ")") // relocate center of pie to 'outerRadius,outerRadius'
+          .attr("transform", "translate(" + 1.5*outerRadius + "," + 1.5*outerRadius + ")"); // relocate center of pie to 'outerRadius,outerRadius'
 
 
 
     $scope.showFuel = function(divName, data){
-      
-
         var dataSet = data;
 
-
         vis.data([dataSet]);
-  
 
         // This will create <path> elements for us using arc data...
         var arc = d3.svg.arc().outerRadius(outerRadius);
@@ -280,13 +242,9 @@ controller('MainCtrl', [
 
     });
 
-    // Sample bus for simulator
-    _markers[0].id = "33d1ddff-aeb8-38a1-a00d-3c2cf31bc62e";
-    _markers[0].latitude = 21.03021;
-    _markers[0].longitude = 105.78620666666667;
-
     SocketFactory.on('/fptdrive/gps', function(msg) {
-        msg = msg.replace(/\'/g, '"');
+    	if (typeof msg === 'string')
+        	msg = msg.replace(/\'/g, '"');
         var data = angular.fromJson(msg);
         var busId = DeviceFactory.getBus(data.device_id);
         // console.log(busId, data.latitude, data.longitude);
@@ -303,14 +261,12 @@ controller('MainCtrl', [
     // });
 
     $scope.onClickMarker = function(instance, event, marker) {
-        $scope.showWindow = true;
-        $scope.busInfo = DeviceFactory.getBusInfo(marker.id);
-        // $scope.busInfoOut = '';
-        // angular.forEach($scope.busInfo, function(value, key) {
-        //   console.log(value.name + ": " + value.value);
-        //   $scope.busInfoOut += value.name + ": " + value.value + "<br>";
-        // });
-    }
+    	$scope.markers.forEach(function(item, index){
+    		item.show = false;
+    	}); 
+		marker.show = true;
+        $scope.busInfo = DeviceFactory.getBusInfo(marker.id - 1);
+    };
     $interval(function(){},1000);
 
 }]);
@@ -325,11 +281,11 @@ controller('infoWindowCtrl', [
   function($scope, $location, DeviceFactory, BusFactory) {
       $scope.switchToMonitoring = function(instance, event, marker) {
         $location.path("/monitoring");
-      }
-      var busInfo = DeviceFactory.getBus();
+      };
+      var busInfo = DeviceFactory.getCurrentBusInfo();
       $scope.busInfoOut = '';
         angular.forEach(busInfo, function(value, key) {
-          console.log(value.name + ": " + value.value);
+          //console.log(value.name + ": " + value.value);
           $scope.busInfoOut += "<strong>" + value.name + "</strong>"+ ": " + value.value + "<br>";
       });
 }]);

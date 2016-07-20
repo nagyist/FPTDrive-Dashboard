@@ -6,16 +6,14 @@
 <div class="row main-dashboard">
     <div class="col-md-12 gmap-dashboard" >
         <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" >
-          <ui-gmap-markers idKey="'id'" models="markers" coords="'self'" icon="'icon'" click="onClickMarker">
-              <ui-gmap-windows show="'showWindow'" ng-cloak>
+          <ui-gmap-markers idKey="'id'" models="markers" options="'markerOptions'" coords="'self'" icon="'icon'" click="onClickMarker">
+              <ui-gmap-windows show="show" ng-cloak>
                 <div ng-controller="infoWindowCtrl">
                     <div ng-bind-html="busInfoOut | unsafe"></div>
                     <button ng-click="switchToMonitoring()">Live Monitor</button>
                 </div>      
               </ui-gmap-windows>
           </ui-gmap-markers>
-          <ui-gmap-polylines models="map.polygons" path="'geotracks'" static="true">
-  		  </ui-gmap-polylines>
         </ui-gmap-google-map>
     </div>
     <div class="col-md-12 summary-dashboard ">

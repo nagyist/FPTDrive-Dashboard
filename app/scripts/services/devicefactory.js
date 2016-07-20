@@ -6,9 +6,10 @@ angular.module('fptdriveApp').
 factory('DeviceFactory', ['$http', function($http) {
 
   var busInfos = [
-    [{"name":"ID", "value":"33d1ddff-aeb8-38a1-a00d-3c2cf31bc62e"},{"name":"Tuyen", "value":"00"},{"name":"Lo trinh", "value":"My Dinh - Cau Giay"}],
-    [{"name":"ID", "value":"02"}, {"name":"Tuyen", "value":"2b"}, {"name":"Lo trinh","value":""}],
-    [{"name":"ID", "value":"03"}, {"name":"Tuyen", "value":"2b"}, {"name":"Lo trinh","value":""}]
+    [{"name":"ID", "value":"33d1ddff-aeb8-38a1-a00d-3c2cf31bc62e"},{"name":"Tuyến", "value":"09"},{"name":"Lộ Trình", "value":"Cầu Giấy - Thuỵ Khuê"}],
+    [{"name":"ID", "value":"7cb02aa4-e730-30d2-aa54-4989539067ac"}, {"name":"Tuyến", "value":"25"}, {"name":"Lộ Trình","value":"Đại Học Ngoại Thương - Liễu Giai"}],
+    [{"name":"ID", "value":"ec87c2cc-ab87-35e1-bfd3-be0ea449fcd5"}, {"name":"Tuyến", "value":"35"}, {"name":"Lộ Trình","value":"Mỹ Đình - Bảo Tàng Dân Tộc Học"}],
+    [{"name":"ID", "value":"07885ef8-f62c-3a56-849f-c91b3e5d6be8"}, {"name":"Tuyến", "value":"06"}, {"name":"Lộ Trình","value":"Đỗ Đình Thiện - Doãn Kế Thiện"}]
   ];
 
   var device = {
@@ -41,24 +42,25 @@ factory('DeviceFactory', ['$http', function($http) {
       // Call to backend to get device relation from back-end
       // $http.get("api/assest/")
     },
-    // getBus: function (device_id) {
-    //   return device[device_id];
-    // },
-
-    getBusInfo: function (bus_id) {
-      for (i = 0; i < busInfos.length; i++) {
-        for (j = 0; j < busInfos[i].length; j++) {
-          if (busInfos[i][j].value == bus_id) {
-            sharedBus = busInfos[i];
-            return busInfos[i];     // return information about the desired bus
-          }   
-        }
-      }
+    getBus: function (device_id) {
+      return device[device_id];
     },
 
-    getBus: function() {
-      // console.log("test get bus");
-      // console.log(sharedBus);
+    getBusInfo: function (bus_id) {
+    	console.log("BUSID: " + bus_id) ;
+    	sharedBus = busInfos[bus_id];
+    	return sharedBus;
+      // for (i = 0; i < busInfos.length; i++) {
+        // for (j = 0; j < busInfos[i].length; j++) {
+          // if (busInfos[i][j].value == bus_id) {
+            // sharedBus = busInfos[i];
+            // return busInfos[i];     // return information about the desired bus
+          // }   
+        // }
+      // }
+    },
+
+    getCurrentBusInfo: function() {
       return sharedBus;
     }
   };

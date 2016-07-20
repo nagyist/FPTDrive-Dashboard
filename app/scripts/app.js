@@ -24,7 +24,7 @@ angular
       'btford.socket-io'
     ]).config(function(uiGmapGoogleMapApiProvider) {
     	    uiGmapGoogleMapApiProvider.configure({
-		        key: ' AIzaSyA-em3ErVooX2PgREgCIlR4jSZ7mPUf20U',//fsb.fho@gmail.com
+		        key: 'AIzaSyA-em3ErVooX2PgREgCIlR4jSZ7mPUf20U',//fsb.fho@gmail.com
 		        v: '3.17',
 		        libraries: 'geometry'
 		    }); 
