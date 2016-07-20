@@ -11,14 +11,14 @@ angular.module('fptdriveApp').controller('MonitoringCtrl', ['$scope', '$location
 	'SocketFactory', 'DeviceFactory', 'BusFactory', 'GeoCalc', '$http','$filter',
 function($scope, $location, $anchorScroll, $interval, uiGmapGoogleMapApi, SocketFactory, DeviceFactory, BusFactory, GeoCalc, $http, $filter) {
 	this.awesomeThings = ['HTML5 Boilerplate', 'AngularJS', 'Karma'];
-	var bus_selected_index = 0;
+	var bus_selected_index;
 	console.log("Init MonitoringCtrl " + bus_selected_index);
 
 	$scope.options = {
 		draggable : false,
 		scrollwheel : false
 	};
-	$scope.selectedBusID = 0;
+
 	$scope.updateBusId = function() {
 		console.log("$scope.updateBusId: " + JSON.stringify($scope.selectedBusID));
 		bus_selected_index = $scope.selectedBusID.id - 1;
@@ -47,6 +47,7 @@ function($scope, $location, $anchorScroll, $interval, uiGmapGoogleMapApi, Socket
 		$scope.lat_end = $scope.route[$scope.route.length -1][0];
 		$scope.lon_end = $scope.route[$scope.route.length -1][1]; 
 		$scope.bus_info = DeviceFactory.getBusInfo(bus_selected_index);
+		$scope.updateBusId();
 	}, function(err) {
 		return err;
 		console.log(err);
@@ -300,6 +301,8 @@ function($scope, $location, $anchorScroll, $interval, uiGmapGoogleMapApi, Socket
 	});
 
 	SocketFactory.on('/fptdrive/gps', function(msg) {
+		if (typeof $scope.selectedBusID == 'undefined') return;
+		
 		//console.log('/fptdrive/gps: ' + JSON.stringify(msg));
 		if ( typeof msg === 'string')
 			msg = msg.replace(/\'/g, '"');

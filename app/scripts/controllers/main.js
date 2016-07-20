@@ -266,6 +266,7 @@ controller('MainCtrl', [
     	}); 
 		marker.show = true;
         $scope.busInfo = DeviceFactory.getBusInfo(marker.id - 1);
+        BusFactory.setSelectedBusID(marker.id);
     };
     $interval(function(){},1000);
 
