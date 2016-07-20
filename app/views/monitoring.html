@@ -1,249 +1,304 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+rel="stylesheet">
+
 <div class="iot-mon-bg" >
-    <div class="col-md-6 back">
-        &nbsp;
-    </div>
-    <div class="col-md-6 white">
-        &nbsp;
-    </div>
-    <div class="container ">
-        <div class="col-md-3 iot-mon">
-            <h6>ID, bus</h6>
+	<div class="col-md-6 back">
+		&nbsp;
+	</div>
+	<div class="col-md-6 white">
+		&nbsp;
+	</div>
+	<div class="container ">
+		<div class="col-md-3 iot-mon">
+			<h6>ID, bus</h6>
 
-            <select name="bus" id="selectedBus" ng-model="selectedBusID" 
-            			ng-options="item.bus_id for item in busDictionary"
-            			ng-change="updateBusId()">
-            </select>
+			<select name="bus" id="selectedBus" ng-model="selectedBusID"
+			ng-options="item.bus_id for item in busDictionary"
+			ng-change="updateBusId()"></select>
 
-            <div class="list-group">
-                <a class="list-group-item" ng-click="gotoPart('iot-part-gps')">
+			<div class="list-group">
+				<a class="list-group-item" ng-click="gotoPart('iot-part-gps')">
+				<div class="row-action-primary">
+					<i class="mdi-maps-place"></i>
+				</div>
+				<div class="row-content">
+					<h6 class="list-group-item-heading">GPS</h6>
+				</div> </a>
+
+				<a class="list-group-item" ng-click="gotoPart('iot-part-distance')">
+				<div class="row-action-primary">
+					<i class="mdi-navigation-unfold-more"></i>
+				</div>
+				<div class="row-content">
+					<h6 class="list-group-item-heading">Distance to next obstacle</h6>
+				</div> </a>
+
+				<a class="list-group-item" ng-click="gotoPart('iot-part-face')">
+				<div class="row-action-primary">
+					<i class="mdi-action-face-unlock"></i>
+				</div>
+				<div class="row-content">
+					<h6 class="list-group-item-heading">Driver Facial Monitoring</h6>
+				</div> </a>
+
+				<a class="list-group-item" ng-click="gotoPart('iot-part-door')">
+				<div class="row-action-primary">
+					<i class="mdi-image-crop-portrait"></i>
+				</div>
+				<div class="row-content">
+					<h6 class="list-group-item-heading">Door Status</h6>
+				</div> </a>
+
+				<a class="list-group-item" ng-click="gotoPart('iot-part-temperature')">
+				<div class="row-action-primary">
+					<i class="mdi-image-wb-incandescent"></i>
+
+				</div>
+				<div class="row-content">
+					<h6 class="list-group-item-heading">Temperature</h6>
+				</div> </a>
+
+				<a class="list-group-item" ng-click="gotoPart('iot-part-fuel')">
+				<div class="row-action-primary">
+					<i class="mdi-maps-local-gas-station"></i>
+				</div>
+				<div class="row-content">
+					<h6 class="list-group-item-heading">Fuel</h6>
+				</div> </a>
+
+				<a class="list-group-item" ng-click="gotoPart('iot-part-humidity')">
+				<div class="row-action-primary">
+					<i class="mdi-maps-directions-bus"></i>
+				</div>
+				<div class="row-content">
+					<h6 class="list-group-item-heading">Humidity</h6>
+				</div> </a>
+				
+                <a class="list-group-item" ng-click="gotoPart('iot-part-speed')">
                     <div class="row-action-primary">
-                        <i class="mdi-maps-place"></i>
+                        <i class="mdi-maps-directions-car"></i>
                     </div>
                     <div class="row-content">
-                        <h6 class="list-group-item-heading">GPS</h6>
+                        <h6 class="list-group-item-heading">Speed</h6>
                     </div>
                 </a>
+			</div>
+		</div>
+		<div class="col-md-9 iot-mon-content">
+			<h3 id="iot-part-info">BUS Information</h3>
+			<p>
+				<span ng-repeat='(key, value) in bus_info'> <span class="bold">{{value.name}}: </span> {{value.value}}
+					<br/>
+				</span>
+			</p>
+			<h3 id="iot-part-gps">GPS</h3>
+			<p>
+				<span class="bold">Started: </span> 6:00 2/9/2015 <span class="bold iot-lbl-finish">Finish: </span> 6:00 25/9/2015 <span class="bold iot-lbl-finish">Distance: </span> {{distance_to_end}} KM
+			</p>
+			<ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" bounds="map.bounds">
+				<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-marker>
+				<ui-gmap-polylines models="map.polygons" path="'geotracks'" stroke="map.lineStyle" static="true"></ui-gmap-polylines>
+			</ui-gmap-google-map>
+			<!-- <h3 id="iot-part-passengers">No of passengers up and down</h3>
+			<div class="col-md-12 iot-box">
+			<div class="col-md-9">
+			<canvas id="passengers" class="chart chart-line" chart-data="pasengerData" chart-labels="timelabel" chart-legend="true" chart-options="passengerChartOptions" chart-colours="passengerColours" chart-click="onClick">
+			</canvas>
+			</div>
+			<div class="col-md-3 iot-center">
+			<h4> Right now</h4>
+			<h1> {{totalPassenger}} </h1>
+			<p class="iot-margin"> Passengers on the bus</p>
+			<div class="passanger-up">&nbsp;</div>
+			<p>Passenger up</p>
+			<div class="passanger-down">&nbsp;</div>
+			<p>Passenger down</p>
+			</div>
+			</div>
+			-->
 
-                <a class="list-group-item" ng-click="gotoPart('iot-part-distance')">
-                    <div class="row-action-primary">
-                        <i class="mdi-navigation-unfold-more"></i>
-                    </div>
-                    <div class="row-content">
-                        <h6 class="list-group-item-heading">Distance to next obstacle</h6>
-                    </div>
-                </a>
+			<div class="clear">
+				&nbsp;
+			</div>
 
-                <a class="list-group-item" ng-click="gotoPart('iot-part-face')">
-                    <div class="row-action-primary">
-                        <i class="mdi-action-face-unlock"></i>
-                    </div>
-                    <div class="row-content">
-                        <h6 class="list-group-item-heading">Driver Facial Monitoring</h6>
-                    </div>
-                </a>
+			<h3 id="iot-part-distance">Distance To Next Obstacle</h3>
+			<div class="col-md-12 iot-box">
+				<div class="col-md-9">
+					<canvas id="fuel" class="chart chart-line" chart-data="distanceData" chart-labels="timelabel" chart-legend="true" chart-options="distanceChartOptions" chart-colours="distanceColours" chart-click="onClick"></canvas>
+				</div>
+				<div class="col-md-3 iot-center">
+					<h4> Right now</h4>
+					<h1> {{distanceNow}} </h1>
+					<p class="iot-margin">
+						meters to the Obstacle
+					</p>
+					<div class="distance-bar">
+						&nbsp;
+					</div>
+					<p>
+						Distance
+					</p>
+				</div>
+			</div>
 
-                <a class="list-group-item" ng-click="gotoPart('iot-part-door')">
-                    <div class="row-action-primary">
-                        <i class="mdi-image-crop-portrait"></i>
-                    </div>
-                    <div class="row-content">
-                        <h6 class="list-group-item-heading">Door Status</h6>
-                    </div>
-                </a>
-                
-                <a class="list-group-item" ng-click="gotoPart('iot-part-temperature')">
-                    <div class="row-action-primary">
-                        <i class="mdi-image-wb-incandescent"></i>
-                        
-                    </div>
-                    <div class="row-content">
-                        <h6 class="list-group-item-heading">Temperature</h6>
-                    </div>
-                </a>
+			<div class="clear">
+				&nbsp;
+			</div>
 
-                <a class="list-group-item" ng-click="gotoPart('iot-part-fuel')">
-                    <div class="row-action-primary">
-                        <i class="mdi-maps-local-gas-station"></i>
-                    </div>
-                    <div class="row-content">
-                        <h6 class="list-group-item-heading">Fuel</h6>
-                    </div>
-                </a> 
-                
-                <a class="list-group-item" ng-click="gotoPart('iot-part-humidity')">
-                    <div class="row-action-primary">
-                        <i class="mdi-maps-directions-bus"></i>
-                    </div>
-                    <div class="row-content">
-                        <h6 class="list-group-item-heading">Humidity</h6>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-md-9 iot-mon-content">
-        	<h3 id="iot-part-info">BUS Information</h3>
-	        	<p>
-	            	<span ng-repeat='(key, value) in bus_info'>
-	            		<span class="bold">{{value.name}}: </span> {{value.value}}<br/>
-	            	</span>
-	            </p>
-            <h3 id="iot-part-gps">GPS</h3>
-            <p>
-            	<span class="bold">Started: </span> 6:00 2/9/2015 
-            	<span class="bold iot-lbl-finish">Finish: </span> 6:00 25/9/2015 
-            	<span class="bold iot-lbl-finish">Distance: </span> {{distance_to_end}} KM
-            </p>
-            <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" bounds="map.bounds">
-                <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
-                </ui-gmap-marker>
-                <ui-gmap-polylines models="map.polygons" path="'geotracks'" stroke="map.lineStyle" static="true">
-  		  		</ui-gmap-polylines>
-            </ui-gmap-google-map>
-            <!-- <h3 id="iot-part-passengers">No of passengers up and down</h3>
+			<h3 id="iot-part-face">Driver Facial Monitoring</h3>
+			<table class="table table-striped table-hover iot-mon-table iot-table">
+				<thead>
+					<tr class="iot-row shadow-z-1">
+						<th>NO</th>
+						<th>TIME</th>
+						<th>FACTOR</th>
+						<th>STATUS</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="iot-row shadow-z-1">
+						<td>{{selectedBusID.bus_id}}</td>
+						<td>{{facerg.timestamp}}</td>
+						<td>Yawning Detection</td>
+						<td>
+						<p class="text-success bold">
+							<span class="label label-default">{{facerg.yawn.shortstate}}</span>{{facerg.yawn.longstate}}
+						</p></td>
+
+					</tr>
+					<tr class="iot-row shadow-z-1">
+						<td>{{selectedBusID.bus_id}}</td>
+						<td>{{facerg.timestamp}}</td>
+						<td>Eye Blinking Detection</td>
+						<td>
+						<p class="text-success bold">
+							<span class="label label-default">{{facerg.eye_blink.shortstate}}</span>{{facerg.eye_blink.longstate}}
+						</p></td>
+					</tr>
+					<tr class="iot-row shadow-z-1">
+						<td>{{selectedBusID.bus_id}}</td>
+						<td>{{facerg.timestamp}}</td>
+						<td>Drowsiness Detection</td>
+						<td>
+						<p class="text-success bold">
+							<span class="label label-default">{{facerg.drowsiness.shortstate}}</span>{{facerg.drowsiness.longstate}}
+						</p></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="clear">
+				&nbsp;
+			</div>
+			<h3 id="iot-part-door">door open status</h3>
+			<table class="table table-striped table-hover iot-mon-table iot-table">
+				<thead>
+					<tr class="iot-row shadow-z-1">
+						<th>NO</th>
+						<th>TIME</th>
+						<th>STATUS</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="iot-row shadow-z-1">
+						<td>{{selectedBusID.bus_id}}</td>
+						<td>{{doorstate.timestamp}}</td>
+						<td>
+						<p class="text-success bold">
+							<span class="label label-default">{{doorstate.shortstate}}</span>{{doorstate.longstate}}
+						</p></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="clear">
+				&nbsp;
+			</div>
+			<h3 id="iot-part-temperature">Temperature</h3>
+			<div class="col-md-12 iot-box">
+				<div class="col-md-9">
+					<canvas id="temperature" class="chart chart-line" chart-data="temperatureData" chart-labels="timelabel" chart-legend="true" chart-options="chartOptions" chart-colours="tempColours" chart-click="onClick"></canvas>
+				</div>
+				<div class="col-md-3 iot-center">
+					<h4> Right now</h4>
+					<h1> {{busTemperature}}°C </h1>
+					<p class="iot-margin">
+						Bus temperature
+					</p>
+					<div class="temperature-bar">
+						&nbsp;
+					</div>
+					<p>
+						Bus temperature
+					</p>
+				</div>
+			</div>
+			<div class="clear">
+				&nbsp;
+			</div>
+			<h3 id="iot-part-fuel">Fuel</h3>
+			<div class="col-md-12 iot-box">
+				<div class="col-md-9">
+					<canvas id="fuel" class="chart chart-line" chart-data="fuelData" chart-labels="timelabel" chart-legend="true" chart-options="fuelChartOptions" chart-colours="fuelColours" chart-click="onClick"></canvas>
+				</div>
+				<div class="col-md-3 iot-center">
+					<h4> Right now</h4>
+					<h1> {{busFuel}} </h1>
+					<p class="iot-margin">
+						Fuel left of the bus
+					</p>
+					<div class="fuel-up">
+						&nbsp;
+					</div>
+					<p>
+						Fuel
+					</p>
+				</div>
+			</div>
+			<div class="clear">
+				&nbsp;
+			</div>
+			<h3 id="iot-part-humidity">Humidity</h3>
+			<div class="col-md-12 iot-box">
+				<div class="col-md-9">
+					<canvas id="fuel" class="chart chart-line" chart-data="humidData" chart-labels="timelabel" chart-legend="true" chart-options="humidChartOptions" chart-colours="humidColours" chart-click="onClick"></canvas>
+				</div>
+				<div class="col-md-3 iot-center">
+					<h4> Right now</h4>
+					<h1> {{humidityNow}} </h1>
+					<p class="iot-margin">
+						is the humidity percentage in the bus
+					</p>
+					<div class="humidity-bar">
+						&nbsp;
+					</div>
+					<p>
+						Humidity (%)
+					</p>
+				</div>
+			</div>
+			<div class="clear">
+				&nbsp;
+			</div>
+			
+			<div class="clear">&nbsp;</div>
+            <h3 id="iot-part-speed">Speed</h3>
             <div class="col-md-12 iot-box">
                 <div class="col-md-9">
-                    <canvas id="passengers" class="chart chart-line" chart-data="pasengerData" chart-labels="timelabel" chart-legend="true" chart-options="passengerChartOptions" chart-colours="passengerColours" chart-click="onClick">
+                    <canvas id="speed" class="chart chart-line" chart-data="speedData" chart-labels="timeOfDay" chart-legend="true" chart-options="speedChartOptions" chart-colours="speedColours" chart-click="onClick">
                     </canvas>
                 </div>
-                <div class="col-md-3 iot-center">
-                    <h4> Right now</h4>
-                    <h1> {{totalPassenger}} </h1>
-                    <p class="iot-margin"> Passengers on the bus</p>
-                    <div class="passanger-up">&nbsp;</div>
-                    <p>Passenger up</p>
-                    <div class="passanger-down">&nbsp;</div>
-                    <p>Passenger down</p>
+                <div class="col-md-3 iot-extra"></div>
+                <div class="col-md-3 iot-bar"> 
+                    <div class="maxSpeed-bar">&nbsp;</div>
+                    <p>Maximum Speed (km/h)</p>
                 </div>
-            </div>
-             -->
-
-            <div class="clear">&nbsp;</div>
-
-            <h3 id="iot-part-distance">Distance To Next Obstacle</h3>
-            <div class="col-md-12 iot-box">
-                <div class="col-md-9">
-                    <canvas id="fuel" class="chart chart-line" chart-data="distanceData" chart-labels="timelabel" chart-legend="true" chart-options="distanceChartOptions" chart-colours="distanceColours" chart-click="onClick">
-                    </canvas>
-                </div>
-                <div class="col-md-3 iot-center">
-                    <h4> Right now</h4>
-                    <h1> {{distanceNow}} </h1>
-                    <p class="iot-margin"> meters to the Obstacle</p>
-                    <div class="distance-bar">&nbsp;</div>
-                    <p>Distance</p>
-                </div>
-            </div>
-
-
-            <div class="clear">&nbsp;</div>            
-
-            <h3 id="iot-part-face">Driver Facial Monitoring</h3>
-            <table class="table table-striped table-hover iot-mon-table iot-table">
-                <thead>
-                    <tr class="iot-row shadow-z-1">
-                        <th>NO</th>
-                        <th>TIME</th>
-                        <th>FACTOR</th>
-                        <th>STATUS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="iot-row shadow-z-1">
-                        <td>{{selectedBusID.bus_id}}</td>
-                        <td>{{facerg.timestamp}}</td>
-                        <td>Yawning Detection</td>
-                        <td>
-                            <p class="text-success bold"><span class="label label-default">{{facerg.yawn.shortstate}}</span>{{facerg.yawn.longstate}}</p>
-                        </td>
-                        
-                    </tr>
-                    <tr class="iot-row shadow-z-1">
-                        <td>{{selectedBusID.bus_id}}</td>
-                        <td>{{facerg.timestamp}}</td>
-                        <td>Eye Blinking Detection</td>
-                        <td>
-                            <p class="text-success bold"><span class="label label-default">{{facerg.eye_blink.shortstate}}</span>{{facerg.eye_blink.longstate}}</p>
-                        </td>
-                    </tr>
-                    <tr class="iot-row shadow-z-1">
-                        <td>{{selectedBusID.bus_id}}</td>
-                        <td>{{facerg.timestamp}}</td>
-                        <td>Drowsiness Detection</td>
-                        <td>
-                            <p class="text-success bold"><span class="label label-default">{{facerg.drowsiness.shortstate}}</span>{{facerg.drowsiness.longstate}}</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div class="clear">&nbsp;</div>
-            <h3 id="iot-part-door">door open status</h3>
-            <table class="table table-striped table-hover iot-mon-table iot-table">
-                <thead>
-                    <tr class="iot-row shadow-z-1">
-                        <th>NO</th>
-                        <th>TIME</th>
-                        <th>STATUS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="iot-row shadow-z-1">
-                        <td>{{selectedBusID.bus_id}}</td>
-                        <td>{{doorstate.timestamp}}</td>
-                        <td>
-                            <p class="text-success bold"><span class="label label-default">{{doorstate.shortstate}}</span>{{doorstate.longstate}}</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="clear">&nbsp;</div>
-            <h3 id="iot-part-temperature">Temperature</h3>
-            <div class="col-md-12 iot-box">
-                <div class="col-md-9">
-                    <canvas id="temperature" class="chart chart-line" chart-data="temperatureData" chart-labels="timelabel" chart-legend="true" chart-options="chartOptions" chart-colours="tempColours" chart-click="onClick">
-                    </canvas>
-                </div>
-                <div class="col-md-3 iot-center">
-                    <h4> Right now</h4>
-                    <h1> {{busTemperature}}°C </h1>
-                    <p class="iot-margin"> Bus temperature</p>
-                    <div class="temperature-bar">&nbsp;</div>
-                    <p>Bus temperature</p>
-                </div>
-            </div>
-            <div class="clear">&nbsp;</div>
-            <h3 id="iot-part-fuel">Fuel</h3>
-            <div class="col-md-12 iot-box">
-                <div class="col-md-9">
-                    <canvas id="fuel" class="chart chart-line" chart-data="fuelData" chart-labels="timelabel" chart-legend="true" chart-options="fuelChartOptions" chart-colours="fuelColours" chart-click="onClick">
-                    </canvas>
-                </div>
-                <div class="col-md-3 iot-center">
-                    <h4> Right now</h4>
-                    <h1> {{busFuel}} </h1>
-                    <p class="iot-margin"> Fuel left of the bus</p>
-                    <div class="fuel-up">&nbsp;</div>
-                    <p>Fuel</p>
-                </div>
-            </div>
-            <div class="clear">&nbsp;</div>
-            <h3 id="iot-part-humidity">Humidity</h3>
-            <div class="col-md-12 iot-box">
-                <div class="col-md-9">
-                    <canvas id="fuel" class="chart chart-line" chart-data="humidData" chart-labels="timelabel" chart-legend="true" chart-options="humidChartOptions" chart-colours="humidColours" chart-click="onClick">
-                    </canvas>
-                </div>
-                <div class="col-md-3 iot-center">
-                    <h4> Right now</h4>
-                    <h1> {{humidityNow}} </h1>
-                    <p class="iot-margin"> is the humidity percentage in the bus</p>
-                    <div class="humidity-bar">&nbsp;</div>
-                    <p>Humidity (%)</p>
+                <div class="col-md-3 iot-bar">
+                    <div class="speed-bar">&nbsp;</div>
+                    <p>Average Speed (km/h)</p>
                 </div>
             </div>
             <div class="clear">&nbsp;</div>
 
-            
-        </div>
-    </div>
+		</div>
+	</div>
 </div>

@@ -7,8 +7,9 @@
  * # MainCtrl
  * Controller of the fptdriveApp
  */
-angular.module('fptdriveApp').controller('MonitoringCtrl', ['$scope', '$location', '$anchorScroll', '$interval', 'uiGmapGoogleMapApi', 'SocketFactory', 'DeviceFactory', 'BusFactory', 'GeoCalc', '$http',
-function($scope, $location, $anchorScroll, $interval, uiGmapGoogleMapApi, SocketFactory, DeviceFactory, BusFactory, GeoCalc, $http) {
+angular.module('fptdriveApp').controller('MonitoringCtrl', ['$scope', '$location', '$anchorScroll', '$interval', 'uiGmapGoogleMapApi', 
+	'SocketFactory', 'DeviceFactory', 'BusFactory', 'GeoCalc', '$http','$filter',
+function($scope, $location, $anchorScroll, $interval, uiGmapGoogleMapApi, SocketFactory, DeviceFactory, BusFactory, GeoCalc, $http, $filter) {
 	this.awesomeThings = ['HTML5 Boilerplate', 'AngularJS', 'Karma'];
 	var bus_selected_index = 0;
 	console.log("Init MonitoringCtrl " + bus_selected_index);
@@ -173,6 +174,50 @@ function($scope, $location, $anchorScroll, $interval, uiGmapGoogleMapApi, Socket
 	$scope.distanceColours = ['#ffb6c1'];
 
 	$scope.tempColours = ['#ff76a5'];
+
+
+	$scope.speedChartOptions = {
+		scaleShowGridLines : true,
+		bezierCurve : false,
+		animation : false,
+		// Boolean - Whether the scale should stick to integers, not floats even if drawing space is there
+		scaleOverride : true,
+		scaleSteps : 10,
+		scaleStepWidth : 10,
+		scaleStartValue : 0
+	};
+
+	$scope.speedData = [
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // Average Speed
+		[61, 61, 61, 55, 55, 46, 46, 50, 60, 70, 80, 60, 50, 55] // Max Speed
+	];
+
+	$scope.timeOfDay = ['', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+	$scope.speedColours = ['#009999', '#ff6600']; 
+    $scope.busSpeed = 30.0;
+    $scope.maxSpeed = 45.0;
+	
+	$interval(function() {
+		var timestamp = Date.now();
+		timestamp = $filter('date')(timestamp, "H:mm:ss");
+		// timestamp = $filter('date')(timestamp, "mediumTime");
+		$scope.timeOfDay.shift();
+		$scope.timeOfDay.push(timestamp);
+
+		var busSpeed = parseFloat($scope.busSpeed - Math.random() * 1.5 + Math.random() * 1.5).toFixed(2);
+		$scope.speedData[0].shift();
+		$scope.speedData[0].push(busSpeed);
+
+		// var maxSpeed = parseFloat(busSpeed + Math.random()*5).toFixed(2);
+		var maxSpeed = $scope.speedData[1][0];
+		$scope.speedData[1].shift();
+		$scope.speedData[1].push(maxSpeed);
+
+		$scope.busSpeed = busSpeed;
+		$scope.maxSpeed = maxSpeed;
+
+	}, 3000); 
+
 
 	$scope.totalPassenger = 32;
 	$scope.busTemperature = 20;

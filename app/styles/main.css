@@ -653,3 +653,28 @@ a.pull-right{
 .border-radius-tex-total-flue a:active{
     color: white;
 }
+
+.iot-bar{
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.iot-extra{
+    margin-top: 150px;
+}
+.speed-bar{
+    width: 50%;
+    margin-left:25%;
+    height: 10px;
+    background-color: #009999;
+}
+
+.maxSpeed-bar{
+    width: 50%;
+    margin-left:25%;
+    height: 10px;
+    background-color: #ff6600;
+}
+
+
