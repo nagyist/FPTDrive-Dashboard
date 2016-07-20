@@ -25,7 +25,7 @@ angular
     ]).config(function(uiGmapGoogleMapApiProvider) {
     	    uiGmapGoogleMapApiProvider.configure({
 		        key: 'AIzaSyA-em3ErVooX2PgREgCIlR4jSZ7mPUf20U',//fsb.fho@gmail.com
-		        v: '3.17',
+		        v: '3.23',
 		        libraries: 'geometry'
 		    }); 
     }).config(function($routeProvider) {
