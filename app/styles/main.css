@@ -677,4 +677,19 @@ a.pull-right{
     background-color: #ff6600;
 }
 
+ /* fixed scroll position */
+
+.affix {
+	top: 0;
+	width: 100%;
+	z-index: 10000;
+}
+
+.affix + .container-fluid {
+	padding-top: 70px;
+}
+
+.navbar-inverse {
+	background-color: white !important;
+}
 

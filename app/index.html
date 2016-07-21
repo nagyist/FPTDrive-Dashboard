@@ -36,7 +36,7 @@
     <!-- Add your site or application content here -->
     <div>
     <div class="header">
-        <div class="navbar navbar-default navbar-material-red" role="navigation">
+        <div class="navbar navbar-default navbar-material-red" role="navigation" style=" max-height: 65px;">
             <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#/"><span><img style="max-width:100px; max-height: 60px;  margin-right: 1px;margin-left: -10px" src="/images/logo.png"/></span> <b>&nbsp;FPT Drive</b></a>
@@ -56,8 +56,8 @@
                 </div>
             </div>
         </div>
-        <div class="sub-navbar shadow-z-1" ng-show="globals.currentUser" role="navigation">
-            <div class="container">
+         <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="65">
+         	<div class="container">
                 <a href="/#/dashboard" class="btn btn-default btn-header">
                     <i class="fa fa-home"></i>&nbsp;Dashboard
                 </a>
@@ -74,7 +74,7 @@
                     <i class="fa fa-line-chart"></i>&nbsp;Alerts
                 </a>
             </div>
-        </div>
+         </nav>
     </div>
 
 
