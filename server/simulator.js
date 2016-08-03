@@ -1,5 +1,8 @@
 //simulate GPS
 var fpt = require("fptdrive");
+var gps = require('../node_modules/gps-simulator/gps-simulator.js');
+var gpsData = require('../node_modules/gps-simulator/gps-simulator-data.js');
+
 var polylines_record = ['acj_C{zwdSz@cCBc@AO]g@m@[c@a@OWIYo@aCOw@a@gGg@_Gc@cEq@}F[wCQ_C}EeAuA]uEaAq@EW@eCq@qDaAaBYsA_@wEy@eAWwB]yHcBgJmBmDu@QYQo@BaHIOCA?g@{EVo@FIi@MiB?u@HqCh@kGLaA', 
 'mci_CmhxdS`@eDLyAh@oDn@yFdAf@vKbFHCBGBU?KoCoA}E{B_FaC{IeEeAq@_Bm@iDs@}Ci@kB[{C[}@G{Cg@gCk@}HcBk@K_@Ou@SyA]wHsBaBYu@U]I', 
 'ouh_CscqdSp@@LHDV@~KeAZs@\\QLGNUp@[CoJs@]IaASaF_Bs@Uk@]SGW@SH[A}EiAk@QOOMSWKW?UFKHW?]EkBi@cDu@uDk@gHcAsFs@g@EiFeA{Ae@cBu@wKkFWM?EOYUu@A[CE~@qFbAqF~BeLPoAXmGL}GDwBYEWC[Fq@@aBEaDMmBG{A?I?C@SLK?{DAsBAwAGc@s@Q]JmGJaGPqR@mJAoH@}GEyI?aD{BiFuB{E@uAGkAByGhDE', 
@@ -17,18 +20,46 @@ exports.simulate_gps = function(io) {
 				"ec87c2cc-ab87-35e1-bfd3-be0ea449fcd5", 
 				"07885ef8-f62c-3a56-849f-c91b3e5d6be8"];
 
-	setInterval(function() {
-		for (var i = 0; i < 4; i++) {
-			gps_sensor = {
-				"device_id" : gps_ids[i],
-				"timestamp" : new Date(),
-				"latitude" : dRoute[i][cIdx[i]].latitude,
-				"longitude" : dRoute[i][cIdx[i]].longitude
-			};
-			io.emit('/fptdrive/gps', gps_sensor);
-			cIdx[i] = (cIdx[i] + 1) % dRoute[i].length;
+
+	var route = gpsData.routes;
+	
+	var busId = gps_ids[0];
+
+	var interval = 1000; // miliseconds
+
+	var fastFoward = 1; // 100 times quicker than real time
+
+	var gpsSimulator = new gps.GpsSimulator(route, busId, interval, fastFoward);
+	gpsSimulator.start(function(position, beStopped, movableObject, currentRouteIndex) {
+		var str = "Route " + currentRouteIndex + ", speed " + movableObject.velocity * 3.6;
+		console.log('[ ' + new Date() + ' ] ' + str);
+		
+		gps_sensor = {
+			"device_id" : busId,
+			"timestamp" : new Date(),
+			"latitude" : position.latitude,
+			"longitude" : position.longitude
+		};
+		io.emit('/fptdrive/gps', gps_sensor);
+
+		if (beStopped == true) {
+			console.log(busId + ' has been stopped');
+			console.log('======================================');
 		}
-	}, 1000);
+	});
+
+	// setInterval(function() {
+	// 	for (var i = 0; i < 4; i++) {
+	// 		gps_sensor = {
+	// 			"device_id" : gps_ids[i],
+	// 			"timestamp" : new Date(),
+	// 			"latitude" : dRoute[i][cIdx[i]].latitude,
+	// 			"longitude" : dRoute[i][cIdx[i]].longitude
+	// 		};
+	// 		io.emit('/fptdrive/gps', gps_sensor);
+	// 		cIdx[i] = (cIdx[i] + 1) % dRoute[i].length;
+	// 	}
+	// }, 1000);
 };
 
 
