@@ -1,7 +1,7 @@
 //simulate GPS
 var fpt = require("fptdrive");
-var gps = require('../node_modules/gps-simulator/gps-simulator.js');
-var gpsData = require('../node_modules/gps-simulator/gps-simulator-data.js');
+var gps = require('gps-simulator/gps-simulator.js');
+var gpsData = require('gps-simulator/gps-simulator-data.js');
 
 var polylines_record = ['acj_C{zwdSz@cCBc@AO]g@m@[c@a@OWIYo@aCOw@a@gGg@_Gc@cEq@}F[wCQ_C}EeAuA]uEaAq@EW@eCq@qDaAaBYsA_@wEy@eAWwB]yHcBgJmBmDu@QYQo@BaHIOCA?g@{EVo@FIi@MiB?u@HqCh@kGLaA', 
 'mci_CmhxdS`@eDLyAh@oDn@yFdAf@vKbFHCBGBU?KoCoA}E{B_FaC{IeEeAq@_Bm@iDs@}Ci@kB[{C[}@G{Cg@gCk@}HcBk@K_@Ou@SyA]wHsBaBYu@U]I', 
@@ -29,10 +29,12 @@ exports.simulate_gps = function(io) {
 
 	var fastFoward = 1; // 100 times quicker than real time
 
+	console.log('======================================');
+	console.log(busId + ' has been started');
 	var gpsSimulator = new gps.GpsSimulator(route, busId, interval, fastFoward);
 	gpsSimulator.start(function(position, beStopped, movableObject, currentRouteIndex) {
-		var str = "Route " + currentRouteIndex + ", speed " + movableObject.velocity * 3.6;
-		console.log('[ ' + new Date() + ' ] ' + str);
+		// var str = "Route " + currentRouteIndex + ", speed " + movableObject.velocity * 3.6;
+		// console.log('[ ' + new Date() + ' ] ' + str);
 		
 		gps_sensor = {
 			"device_id" : busId,
