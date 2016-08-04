@@ -21,23 +21,10 @@ exports.simulate_gps = function(io) {
 				"07885ef8-f62c-3a56-849f-c91b3e5d6be8"];
 
 
-	var route = gpsData.routes;
-	
-	var busId = gps_ids[0];
-
-	var interval = 1000; // miliseconds
-
-	var fastFoward = 1; // 100 times quicker than real time
-
-	console.log('======================================');
-	console.log(busId + ' has been started');
-	var gpsSimulator = new gps.GpsSimulator(route, busId, interval, fastFoward);
-	gpsSimulator.start(function(position, beStopped, movableObject, currentRouteIndex) {
-		// var str = "Route " + currentRouteIndex + ", speed " + movableObject.velocity * 3.6;
-		// console.log('[ ' + new Date() + ' ] ' + str);
-		
+	var gpsSimulator = new gps.GpsSimulator(gpsData.routes01.AB, gps_ids[0]);
+	gpsSimulator.start(function(position, beStopped) {
 		gps_sensor = {
-			"device_id" : busId,
+			"device_id" : gps_ids[0],
 			"timestamp" : new Date(),
 			"latitude" : position.latitude,
 			"longitude" : position.longitude
@@ -45,23 +32,26 @@ exports.simulate_gps = function(io) {
 		io.emit('/fptdrive/gps', gps_sensor);
 
 		if (beStopped == true) {
-			console.log(busId + ' has been stopped');
+			console.log(gps_ids[0] + ' has been stopped');
 			console.log('======================================');
 		}
 	});
 
-	// setInterval(function() {
-	// 	for (var i = 0; i < 4; i++) {
-	// 		gps_sensor = {
-	// 			"device_id" : gps_ids[i],
-	// 			"timestamp" : new Date(),
-	// 			"latitude" : dRoute[i][cIdx[i]].latitude,
-	// 			"longitude" : dRoute[i][cIdx[i]].longitude
-	// 		};
-	// 		io.emit('/fptdrive/gps', gps_sensor);
-	// 		cIdx[i] = (cIdx[i] + 1) % dRoute[i].length;
-	// 	}
-	// }, 1000);
+	var gpsSimulator2 = new gps.GpsSimulator(gpsData.routes01.BA, gps_ids[1]);
+	gpsSimulator2.start(function(position, beStopped) {
+		gps_sensor = {
+			"device_id" : gps_ids[1],
+			"timestamp" : new Date(),
+			"latitude" : position.latitude,
+			"longitude" : position.longitude
+		};
+		io.emit('/fptdrive/gps', gps_sensor);
+
+		if (beStopped == true) {
+			console.log(gps_ids[1] + ' has been stopped');
+			console.log('======================================');
+		}
+	});
 };
 
 
