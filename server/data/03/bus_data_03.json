@@ -1,0 +1,238 @@
+{
+  "info": {
+    "id": "BUS0410001",
+    "serial": "ec87c2cc-ab87-35e1-bfd3-be0ea449fcd5",
+    "route_id": "10"
+  },
+  "routes": {
+    "ab": {
+      "route_polyline": "iel_C{_~dS_D_@sDe@{@KkBW??f@sGLoAjAqK??lDX~E`@hBLxLdA@?tBJtO~@nJv@tCRhBJF@P@??@MdAwFZeBf@}B`@cC??zBArA?d@@zBBbBAlBDnFBzBAfBBpQHpCB`B?tBB~B?zBAb@?hCEjB?J@hB@lA?h@@Z?vA?rDBF?xDB~G@`A?B?fA@bCBrCBN@LBD?rAAvBC??h@?lBAnCAfKHT?R?zEDfD@p@AF?T?\\?hGC??V?VArMJpMHn@F??b@?`EFhB?lH?pB?`BD~FDlI@fB@hB@zC@xC@f@?zG???X?@UAcF?o@?sC?YAeBDkG?mA?uA???}IAsAAkB@mB?aAAkADaCF}BBoBDaDAeAA{EAgF?kEAu@?sFCYFeAEqBAmCEkHCmAAcB?QAsAC}BGw@KU?UEaA??o@B]BsAFG@oAJO@I?s@BK@mDPaDNkBNcAFI@{BJy@DgEPqAFkCLwCDSB_D\\{BHgAFyAHe@B{AJqEVC???SGSGQGQIMGy@aDiBqH]sA??f@S|@W??AmG?mA??b@O~@@rBBP?P@b@D`@H^H^DR@P?ZCPA",
+      "route_name": "Lăng Bác - Khu đô thị Times City",
+      "bus_stop": [
+        {
+          "id": "STOP81",
+          "name": "32 Điện Biên Phủ",
+          "des": "Đại sứ quán Malaysia",
+          "latitude": 21.033916,
+          "longitude": 105.837962
+        },
+        {
+          "id": "STOP82",
+          "name": "56 Hoàng Diệu",
+          "des": "Đại sứ quán Singapore",
+          "latitude": 21.030926,
+          "longitude": 105.838544
+        },
+        {
+          "id": "STOP83",
+          "name": "40 Nguyễn Thái Học",
+          "des": "Trường Tiểu học Phan Chu Trinh",
+          "latitude": 21.029566,
+          "longitude": 105.839053
+        },
+        {
+          "id": "STOP84",
+          "name": "48 Lê Duẩn",
+          "des": "Chợ Cửa Nam",
+          "latitude": 21.027884,
+          "longitude": 105.841546
+        },
+        {
+          "id": "STOP85",
+          "name": "94 Lê Duẩn",
+          "des": "Tổng công ty Đường Sắt Việt Nam",
+          "latitude": 21.025505,
+          "longitude": 105.841474
+        },
+        {
+          "id": "STOP86",
+          "name": "161 Lê Duẩn",
+          "des": "161 Lê Duẩn",
+          "latitude": 21.021222,
+          "longitude": 105.841422
+        },
+        {
+          "id": "STOP87",
+          "name": "252 Lê Duẩn",
+          "des": "252 Lê Duẩn",
+          "latitude": 21.015867,
+          "longitude": 105.841396
+        },
+        {
+          "id": "STOP88",
+          "name": "332 Lê Duẩn",
+          "des": "Bệnh viện thú y Hải Đăng",
+          "latitude": 21.014036,
+          "longitude": 105.841376
+        },
+        {
+          "id": "STOP89",
+          "name": "130 Lê Duẩn",
+          "des": "Lê Duẩn - Hồ Ba Mẫu",
+          "latitude": 21.010407,
+          "longitude": 105.841309
+        },
+        {
+          "id": "STOP90",
+          "name": "24 Giải Phóng",
+          "des": "Bệnh viện Việt Pháp",
+          "latitude": 21.004883,
+          "longitude": 105.841247
+        },
+        {
+          "id": "STOP91",
+          "name": "195 Giải Phóng",
+          "des": "Bệnh viện Bạch Mai",
+          "latitude": 21.001335,
+          "longitude": 105.841216
+        },
+        {
+          "id": "STOP92",
+          "name": "C2 Giải Phóng",
+          "des": "C2 Giải Phóng",
+          "latitude": 20.993302,
+          "longitude": 105.841051
+        },
+        {
+          "id": "STOP93",
+          "name": "352 Giải Phóng",
+          "des": "352 Giải Phóng",
+          "latitude": 20.989346,
+          "longitude": 105.840990
+        },
+        {
+          "id": "STOP94",
+          "name": "845 Giải Phóng",
+          "des": "845 Giải Phóng",
+          "latitude": 20.984379,
+          "longitude": 105.840954
+        },
+        {
+          "id": "STOP95",
+          "name": "29 Tân Mai",
+          "des": "TPBank Tân Mai",
+          "latitude": 20.983620,
+          "longitude": 105.846319
+        },
+        {
+          "id": "STOP96",
+          "name": "Tân Mai",
+          "des": "Đối diện Công viên Đền Lừ",
+          "latitude": 20.983511,
+          "longitude": 105.855783
+        },
+        {
+          "id": "STOP97",
+          "name": "353 Tam Trinh",
+          "des": "Siêu thị Điện máy HC",
+          "latitude": 20.984712,
+          "longitude": 105.863742
+        },
+        {
+          "id": "STOP98",
+          "name": "139 Tam Trinh",
+          "des": "Trường THPT Dân lập Đông Kinh",
+          "latitude": 20.992424,
+          "longitude": 105.862919
+        },
+        {
+          "id": "STOP99",
+          "name": "404 Minh Khai",
+          "des": "Khu đô thị Times City",
+          "latitude": 20.996987,
+          "longitude": 105.864507
+        }
+      ]
+    },
+    "ba": {
+      "route_polyline": "onc_C}edeSQ@[BQ?SA_@E_@Ia@Ic@EQAQ?sBC_AAe@Qs@CkACeAC]?OB??gA_E??WgAe@oBYkAa@sAs@_B_@q@Q[??CGCCACCCECCAI?C?G@EBCBCBEHAD?D?FWLEDEDIFkAb@SF}@VoA`@s@RgAZkA\\aAXwA`@g@Nk@Na@LyA^OFyBl@yA\\UDG?I?KAGA??MOMLo@p@mAlA_MfLs@l@uBtBkCtBiCvAyBbAeEdAwBh@uB^aAN_ANoBZsEn@qG`Aw@JsEp@cBTiAHaABWA??}AHE?mBR}AV}Cv@uJdCaBh@??eBp@iFvCqHdEiGhCSJuLbE_Cz@aDlAaDlAsAl@ABABEDOFsBx@c@V{@^WLgAf@}@h@u@h@_@VEBE@EAC?kB~AY\\_D`CyAbAo@f@SJqBt@WP[Tu@p@??mAdA]XoBxByAvByAjB[\\q@t@{CbCg@b@s@j@s@j@??R^LNHN??xAO??KV??@H@BABk@fGI^Oh@m@`CcArDu@fC??~@NrCb@hAPpBZ??[hCOzA[xF@dLHlI??NLb@T??HENCPAT?`BJjBVz@JrDd@~C^",
+      "route_name": "Khu đô thị Times City - Lăng Bác",
+      "bus_stop": [
+        {
+          "id": "STOP100",
+          "name": "460 Minh Khai",
+          "des": "Công ty Dệt kim Đông Xuân",
+          "latitude": 20.998259,
+          "longitude": 105.868264
+        },
+        {
+          "id": "STOP101",
+          "name": "692 Minh Khai",
+          "des": "692 Minh Khai",
+          "latitude": 21.001045,
+          "longitude": 105.870547
+        },
+        {
+          "id": "STOP102",
+          "name": "Nguyễn Khoái",
+          "des": "Trường Cao đẳng nghề Kĩ thuật - Công nghệ LOD",
+          "latitude": 21.006086,
+          "longitude": 105.868538
+        },
+        {
+          "id": "STOP103",
+          "name": "Nguyễn Khoái",
+          "des": "UBND phường Bạch Đằng",
+          "latitude": 21.011118,
+          "longitude": 105.864163
+        },
+        {
+          "id": "STOP104",
+          "name": "Ngõ 47 Nguyễn Khoái",
+          "des": "Ngõ 47 Nguyễn Khoái",
+          "latitude": 21.017305,
+          "longitude": 105.862387
+        },
+        {
+          "id": "STOP105",
+          "name": "198 Trần Quang Khải",
+          "des": "Thiên Sơn Plaza",
+          "latitude": 21.028182,
+          "longitude": 105.858296
+        },
+        {
+          "id": "STOP106",
+          "name": "Trần Nhật Duật",
+          "des": "Trần Nhật Duật",
+          "latitude": 21.037732,
+          "longitude": 105.852916
+        },
+        {
+          "id": "STOP107",
+          "name": "104B Yên Phụ",
+          "des": "104B Yên Phụ",
+          "latitude": 21.041682,
+          "longitude": 105.849414
+        },
+        {
+          "id": "STOP108",
+          "name": "49-57 Phạm Hồng Thái",
+          "des": "49-57 Phạm Hồng Thái",
+          "latitude": 21.043946,
+          "longitude": 105.844278
+        },
+        {
+          "id": "STOP109",
+          "name": "188/26 Quán Thánh",
+          "des": "Trường Tiểu học Nguyễn Tri Phương",
+          "latitude": 21.042819,
+          "longitude": 105.838472
+        },
+        {
+          "id": "STOP110",
+          "name": "1B Hùng Vương",
+          "des": "Lăng Bác",
+          "latitude": 21.040441,
+          "longitude": 105.835915
+        },
+        {
+          "id": "STOP111",
+          "name": "1C Hoàng Văn Thụ",
+          "des": "Quảng trường Ba Đình",
+          "latitude": 21.038979,
+          "longitude": 105.836450
+        }
+      ]
+    }
+  }
+}

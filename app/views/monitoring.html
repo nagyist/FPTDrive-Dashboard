@@ -95,7 +95,12 @@ rel="stylesheet">
 			<p>
 				<span class="bold">Started: </span> 6:00 2/9/2015 <span class="bold iot-lbl-finish">Finish: </span> 6:00 25/9/2015 <span class="bold iot-lbl-finish">Distance: </span> {{distance_to_end}} KM
 			</p>
+			<p>
+				<span class="bold">Next Bus: </span> {{next_bus_stop_name}} ({{next_bus_stop_des}})<span class="bold iot-lbl-finish">Distance: </span> {{next_bus_stop_distance}}
+			</p>
 			<ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" bounds="map.bounds">
+				<ui-gmap-markers idKey="'id'" models="markers" options="'markerOptions'" coords="'self'" icon="'icon'" click="onClickMarker">
+				</ui-gmap-markers>
 				<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-marker>
 				<ui-gmap-polylines models="map.polygons" path="'geotracks'" stroke="map.lineStyle" static="true"></ui-gmap-polylines>
 			</ui-gmap-google-map>

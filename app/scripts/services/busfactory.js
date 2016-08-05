@@ -42,13 +42,13 @@ function($http, $q, GeoCalc) {
 				return (parseInt(selectedBusID) - 1);
 		},
 		getPolyRoute : function(busId) {
-			console.log("BusFactory getPolyRoute " + busId);
+			//console.log("BusFactory getPolyRoute " + busId);
 			if (busId >= 0)
 				return polylines_record[busId];
 			return [];
 		},
 		getRoute : function(busId) {
-			console.log("BusFactory getRoute " + busId);
+			//console.log("BusFactory getRoute " + busId);
 			if (busId >= 0)
 				return routes[busId];
 			return [];

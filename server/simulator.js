@@ -1,32 +1,70 @@
 //simulate GPS
 var fpt = require("fptdrive");
-var polylines_record = ['acj_C{zwdSz@cCBc@AO]g@m@[c@a@OWIYo@aCOw@a@gGg@_Gc@cEq@}F[wCQ_C}EeAuA]uEaAq@EW@eCq@qDaAaBYsA_@wEy@eAWwB]yHcBgJmBmDu@QYQo@BaHIOCA?g@{EVo@FIi@MiB?u@HqCh@kGLaA', 
-'mci_CmhxdS`@eDLyAh@oDn@yFdAf@vKbFHCBGBU?KoCoA}E{B_FaC{IeEeAq@_Bm@iDs@}Ci@kB[{C[}@G{Cg@gCk@}HcBk@K_@Ou@SyA]wHsBaBYu@U]I', 
-'ouh_CscqdSp@@LHDV@~KeAZs@\\QLGNUp@[CoJs@]IaASaF_Bs@Uk@]SGW@SH[A}EiAk@QOOMSWKW?UFKHW?]EkBi@cDu@uDk@gHcAsFs@g@EiFeA{Ae@cBu@wKkFWM?EOYUu@A[CE~@qFbAqF~BeLPoAXmGL}GDwBYEWC[Fq@@aBEaDMmBG{A?I?C@SLK?{DAsBAwAGc@s@Q]JmGJaGPqR@mJAoH@}GEyI?aD{BiFuB{E@uAGkAByGhDE', 
-'yug_CwprdS|@pAJBLEXS^n@dE_D\\WxG`Kr@hAdI`MPj@ADAL?FWd@yRbOwHtE_GrEs@`@M@[NiA^kAPyC^qBLcDAQASB{E?kKw@_B]}FkBu@[IGSIUAUHQ@]GeFkA_@QMWSMYCWFIDEDI@[C{Bm@_FgAeEm@yL_Bm@GiEw@uBk@qAg@mFmCiFcCCM_@y@C[CSnAiHbAkFe@SYhAeApFoO{DaHsAx@yDd@kCP_B@Y?]He@hAaFViBFqB'];
-var route = fpt.polyline_decode(polylines_record[0]);
+var buses = [
+	require('./data/01/bus_data_01.json'),
+	require('./data/02/bus_data_02.json'),
+	require('./data/03/bus_data_03.json'),
+	require('./data/04/bus_data_04.json')
+];
+
+//console.log(JSON.stringify(buses));
+
+// var polylines_record = [
+// //'acj_C{zwdSz@cCBc@AO]g@m@[c@a@OWIYo@aCOw@a@gGg@_Gc@cEq@}F[wCQ_C}EeAuA]uEaAq@EW@eCq@qDaAaBYsA_@wEy@eAWwB]yHcBgJmBmDu@QYQo@BaHIOCA?g@{EVo@FIi@MiB?u@HqCh@kGLaA', 
+// 'cdi_CcexdSj@iEX_Dh@oDn@yFxDjBbElBzDbB~Az@@ARi@u@_@UmApAaDrD}Jf@{AbEaKt@}BlAkCdFoInCgEtCeErFmIhCkCtCeCtBuB~AyAn@aAN[f@wAZ_@pAmBTcATwARo@N]hAiDbC{GfAgDf@mADQt@oBfCgGFUSMmB}Ba@m@_@c@oD}EcAmAOMGAi@m@oBoC}AmBsAsBcByB[YQm@AO?e@bCwApA{@TSDMzEiFf@u@\\q@b@eA`@}AVoAPeC?{@C_CGqB[_G?SFUu@cLoAcM]oFG_DBoAgBGqCCwJa@kHSeA@{HZgIh@mBGwD[oCc@wRoCuBSyDk@mBUuF_A{B[cPuA',
+// 'mci_CmhxdS`@eDLyAh@oDn@yFdAf@vKbFHCBGBU?KoCoA}E{B_FaC{IeEeAq@_Bm@iDs@}Ci@kB[{C[}@G{Cg@gCk@}HcBk@K_@Ou@SyA]wHsBaBYu@U]I', 
+// 'ouh_CscqdSp@@LHDV@~KeAZs@\\QLGNUp@[CoJs@]IaASaF_Bs@Uk@]SGW@SH[A}EiAk@QOOMSWKW?UFKHW?]EkBi@cDu@uDk@gHcAsFs@g@EiFeA{Ae@cBu@wKkFWM?EOYUu@A[CE~@qFbAqF~BeLPoAXmGL}GDwBYEWC[Fq@@aBEaDMmBG{A?I?C@SLK?{DAsBAwAGc@s@Q]JmGJaGPqR@mJAoH@}GEyI?aD{BiFuB{E@uAGkAByGhDE', 
+// 'yug_CwprdS|@pAJBLEXS^n@dE_D\\WxG`Kr@hAdI`MPj@ADAL?FWd@yRbOwHtE_GrEs@`@M@[NiA^kAPyC^qBLcDAQASB{E?kKw@_B]}FkBu@[IGSIUAUHQ@]GeFkA_@QMWSMYCWFIDEDI@[C{Bm@_FgAeEm@yL_Bm@GiEw@uBk@qAg@mFmCiFcCCM_@y@C[CSnAiHbAkFe@SYhAeApFoO{DaHsAx@yDd@kCP_B@Y?]He@hAaFViBFqB'];
+// var route = fpt.polyline_decode(polylines_record[0]);
+// var dRoute = [];
+// for (var i = 0; i < 4; i++) {
+	// dRoute.push(fpt.geo_detailize(polylines_record[i], 5, "K", 0.01));
+// }
+
 var dRoute = [];
-for (var i = 0; i < 4; i++) {
-	dRoute.push(fpt.geo_detailize(polylines_record[i], 5, "K", 0.01));
-}
 var cIdx = [0, 0, 0, 0];
-var gps_sensor;
+var cRouteIndex = [0,0,0,0];
+var gps_sensor, reset_status;
+
 exports.simulate_gps = function(io) {
-	var gps_ids = ["33d1ddff-aeb8-38a1-a00d-3c2cf31bc62e", 
-				"7cb02aa4-e730-30d2-aa54-4989539067ac", 
-				"ec87c2cc-ab87-35e1-bfd3-be0ea449fcd5", 
-				"07885ef8-f62c-3a56-849f-c91b3e5d6be8"];
+	buses.forEach(function(elm, idx, arr){
+		elm.routes.ab.route_detail = fpt.geo_detailize(elm.routes.ab.route_polyline, 5, "K", 0.01);
+		elm.routes.ba.route_detail = fpt.geo_detailize(elm.routes.ba.route_polyline, 5, "K", 0.01);
+	});
+
+	buses.forEach(function(elm, idx, arr){
+		dRoute[idx] = elm.routes.ab.route_detail;
+	});
 
 	setInterval(function() {
 		for (var i = 0; i < 4; i++) {
 			gps_sensor = {
-				"device_id" : gps_ids[i],
+				"device_id" : buses[i].info.serial,
 				"timestamp" : new Date(),
 				"latitude" : dRoute[i][cIdx[i]].latitude,
-				"longitude" : dRoute[i][cIdx[i]].longitude
+				"longitude" : dRoute[i][cIdx[i]].longitude,
+				"direction": cRouteIndex[i]
 			};
 			io.emit('/fptdrive/gps', gps_sensor);
 			cIdx[i] = (cIdx[i] + 1) % dRoute[i].length;
+			
+			if (cIdx[i] == 0) {				
+				//change route
+				cRouteIndex[i] = (cRouteIndex[i] + 1) % 2;	
+				if (cRouteIndex[i] == 0) {
+					dRoute[i] = buses[i].routes.ab.route_detail;
+				} else {
+					dRoute[i] = buses[i].routes.ba.route_detail;
+				}
+				console.log("BUS ", i, "Changed route", cRouteIndex[i]);
+				
+				reset_status = {
+					"device_id" : buses[i].info.serial,
+					"timestamp" : new Date(),
+					"direction": cRouteIndex[i]
+				};
+				io.emit('/fptdrive/status/reset', gps_sensor);
+			}
 		}
 	}, 1000);
 };
@@ -77,7 +115,7 @@ exports.simulate_distance = function(io) {
 	setInterval(function() {
 		for (var i = 0; i < 4; i++) {
 			msg = {
-				"device_id" : camera_id[i],
+				"device_id" : buses[i].info.serial,
 				"timestamp" : new Date(),
 				"distance_to_next" : 10 + (Math.random() * 100 % 30)
 			};
@@ -98,7 +136,7 @@ exports.simulate_face = function(io){
     setInterval(function(){
     	for (var i = 0; i< 4; i++) {
 	    	face_sensor = {
-	            "device_id": face_id[i],
+	            "device_id": buses[i].info.serial,
 	            "timestamp": new Date(),
 	            "yawn": (Math.floor(Math.random() * 1000) % 50 === 0)?0:1,
 	            "eye_blink": (Math.floor(Math.random() * 1000) % 10 === 0)?0:1,

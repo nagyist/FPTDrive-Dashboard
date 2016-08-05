@@ -43,7 +43,7 @@ module.exports = function (orm, db) {
             drivers: drivers,
             routeinfos: routeinfos,
             devices: devices
-          }
+          };
         }
       }
     });

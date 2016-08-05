@@ -6,6 +6,7 @@ var awsIot = require('aws-iot-device-sdk');
 var app = express();
 var models = require('./model/');
 var simulator = require('./simulator.js');
+var fs = require("fs");
 
 app.set('port', 8000);
 app.use(express.favicon());
@@ -95,6 +96,12 @@ app.get('/api/bus/:busId', function(req, res) {
 	});
 });
 
+app.get('/api/bus/route/:routeId', function(req, res) {
+	console.log(req.params.routeId);
+	var json = require('./data/'+req.params.routeId+'/bus_data_'+req.params.routeId+'.json');//JSON.parse(fs.readFileSync('./data/bus05.json', 'utf8'));
+	res.json(json);
+
+});
 ///
 
 server.listen(app.get('port'));

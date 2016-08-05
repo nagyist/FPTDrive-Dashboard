@@ -1,0 +1,231 @@
+{
+  "info": {
+    "id": "BUS0409001",
+    "serial": "7cb02aa4-e730-30d2-aa54-4989539067ac",
+    "route_id": "09"
+  },
+  "routes": {
+    "ab": {
+      "route_polyline": "_dj_CgjsdS?FObCUzC??O~A`@DjBPr@Dx@Fl@FbE^lBNhBLjAF`B@lAAp@Cr@EhAGvAQfAUhD_A|@]r@[r@_@t@c@BAzFcEZWZWlA_ApAcA??T@t@FhAHZANT`DnFPXhDhFPRT^xDhG~F~IX`@HNh@x@|GnKf@p@HTFT??AB?@AB?B?@?B?B?B?H@JBHDJDFFFFFHBD@B@D?B@D?B?D?BAD?BABABABABC@CBE@??A?A@??A?AtHuEj@Wn@S`@Gh@C`@C^@vN`BfAJjCN??v@e@F]Hw@b@uC~AgNRgB^sC\\qCp@iFr@{FFm@Jk@h@kEHw@Dk@??JkCDiA@YC_CEiBKiBI}AS_BS{Ac@yBo@kCy@eCUg@]o@CE??Y{@w@_BmB{CU[??Qe@I[K]GYCYAU@UDWFUPc@^[\\WROfBuAROf@_@??T_@FGvIyGvAiANKNMLQz\\aW??DBDAHCJGXSt@g@rF}Dr@i@TMLEH?r@g@b@[jBsAx@k@zAeA??dAy@y@mAu@oAiA}AeAaBo@eAcAuA_BkCGGECGCE?IQg@w@a@m@m@aA}@wAg@s@wA}BaAyAm@aAyDyGuCaFwCcFgAqBWe@_A}AaAiBy@wAgAeBeDuFOUOWQ[OW?Ac@s@y@mAS]??@KAGAIWa@yByCa@i@a@o@",
+      "route_name": "Tôn Thất Thuyết - Nguyễn Trãi",
+      "bus_stop": [
+        {
+          "id": "STOP51",
+          "name": "Tôn Thất Thuyết",
+          "des": "Toyota Mỹ Đình",
+          "latitude": 21.028808,
+          "longitude": 105.779774
+        },
+        {
+          "id": "STOP52",
+          "name": "20 Phạm Hùng",
+          "des": "Bến xe Mỹ Đình",
+          "latitude": 21.027857,
+          "longitude": 105.778849
+        },
+        {
+          "id": "STOP53",
+          "name": "88 Phạm Hùng",
+          "des": "88 Phạm Hùng",
+          "latitude": 21.023122,
+          "longitude": 105.778567
+        },
+        {
+          "id": "STOP54",
+          "name": "50 Phạm Hùng",
+          "des": "Ngân hàng Quân đội Mỹ Đình",
+          "latitude": 21.018596,
+          "longitude": 105.781143
+        },
+        {
+          "id": "STOP55",
+          "name": "Mễ Trì, Từ Liêm",
+          "des": "Học viện Âm nhạc Quốc Gia",
+          "latitude": 21.015771,
+          "longitude": 105.779384
+        },
+        {
+          "id": "STOP56",
+          "name": "Mễ Trì, Từ Liêm",
+          "des": "Trường tiểu học Monoloxop",
+          "latitude": 21.012330,
+          "longitude": 105.774588
+        },
+        {
+          "id": "STOP57",
+          "name": "Lê Quang Đạo",
+          "des": "Lê Quang Đạo",
+          "latitude": 21.006526,
+          "longitude": 105.773298
+        },
+        {
+          "id": "STOP58",
+          "name": "Mễ Trì",
+          "des": "Viglacera Real Estate Company",
+          "latitude": 21.003556,
+          "longitude": 105.790976
+        },
+        {
+          "id": "STOP59",
+          "name": "454 Khuất Duy Tiến",
+          "des": "Đại học Phòng cháy chữa cháy",
+          "latitude": 21.000876,
+          "longitude": 105.795593
+        },
+        {
+          "id": "STOP60",
+          "name": "216 Khuất Duy Tiến",
+          "des": "Ngân hàng Công Thương",
+          "latitude": 20.994687,
+          "longitude": 105.800457
+        },
+        {
+          "id": "STOP61",
+          "name": "Nguyễn Trãi",
+          "des": "Giày Thượng Đình",
+          "latitude": 20.993431,
+          "longitude": 105.806352
+        },
+        {
+          "id": "STOP62",
+          "name": "Nguyễn Trãi",
+          "des": "Đối diện Trường đại học Khoa học Tự nhiên",
+          "latitude": 20.995497,
+          "longitude": 105.809128
+        },
+        {
+          "id": "STOP63",
+          "name": "Nguyễn Trãi - Khương Đình",
+          "des": "",
+          "latitude": 20.998347,
+          "longitude": 105.813401
+        },
+        {
+          "id": "STOP64",
+          "name": "Nguyễn Trãi",
+          "des": "Đối diện Vincom Mega Mall Royal City",
+          "latitude": 21.000520,
+          "longitude": 105.816749
+        }
+      ]
+    },
+    "ba": {
+      "route_polyline": "ube_Cc~zdSa@o@??S[M|@UpAQp@CFUp@Wn@Wd@c@h@{A~AiA`BQXSPKH[N_@Rm@^eBfAaAl@KFYP{@h@cBhAiAz@]Xy@n@c@b@YVKHKFMFMDSNm@dA[l@OZS`@e@~@KRa@p@Sd@sA`CQ^cA`BOXILEHEFCFIN_CxDaBnCaCzD_BdCc@p@uApBWZgArAQT{BhCkAlA??eAmAaCgCu@u@SQ_@Yu@a@wAw@}@a@wAo@]QkCsAu@_@m@[y@_@a@SuAm@y@a@q@[qB_Ai@WOGcAg@e@Wk@YiAg@{IeEeAq@_Bm@iDs@k@MqB[YEqAUsA[??AECCIEOEeAS??yAQmASe@IMEm@M??[IDbAJv@LjAP`BX~CdArI~@|LHp@H`@~@hDP^JJTZ??IZMd@Kt@Id@KX[|@g@tA}AzD[~@Ur@c@|Ay@zA}@rAm@l@WVy@z@gBjB{@`A?@w@j@eAhA_A`AUTkArAo@v@S`@_@bAG^S`Ac@`Bo@|CcBxGQx@uBlJEPq@vCYxAMx@ER??Ep@FFDJDHFHHDNB`@FbFx@vAZrCb@jATdHdAnHhA`Fr@zDl@H@F@NDLDLHFDFF??@DBBBL@L?R?b@[lEEz@i@pGEl@Gf@oAxO",
+      "route_name": "Nguyễn Trãi - Tôn Thất Thuyết",
+      "bus_stop": [
+        {
+          "id": "STOP65",
+          "name": "90 Láng",
+          "des": "90 Láng",
+          "latitude": 21.003845,
+          "longitude": 105.818601
+        },
+        {
+          "id": "STOP66",
+          "name": "276 Láng",
+          "des": "Trường Đào tạo Cán bộ Lê Hồng Phong",
+          "latitude": 21.006183,
+          "longitude": 105.816474
+        },
+        {
+          "id": "STOP67",
+          "name": "10 Láng",
+          "des": "Nhà hàng KFC Láng",
+          "latitude": 21.010062,
+          "longitude": 105.812495
+        },
+        {
+          "id": "STOP68",
+          "name": "7 Láng",
+          "des": "7 Láng",
+          "latitude": 21.013138,
+          "longitude": 105.807886
+        },
+        {
+          "id": "STOP69",
+          "name": "76 Nguyễn Chí Thanh",
+          "des": "Trường Đại học Văn hoá Nghệ thuật Quân đội",
+          "latitude": 21.017433,
+          "longitude": 105.806957
+        },
+        {
+          "id": "STOP70",
+          "name": "62 Nguyễn Chí Thanh",
+          "des": "Trường Đại học Luật Hà Nội",
+          "latitude": 21.021362,
+          "longitude": 105.809200
+        },
+        {
+          "id": "STOP71",
+          "name": "26A Điện Biên Phủ",
+          "des": "Đối diện Đại sứ quán Đan Mạch",
+          "latitude": 21.030269,
+          "longitude": 105.841445
+        },
+        {
+          "id": "STOP72",
+          "name": "87 Nguyễn Chí Thanh",
+          "des": "87 Nguyễn Chí Thanh",
+          "latitude": 21.023743,
+          "longitude": 105.810590
+        },
+        {
+          "id": "STOP73",
+          "name": "31 Nguyễn Chí Thanh",
+          "des": "31 Nguyễn Chí Thanh",
+          "latitude": 21.028023,
+          "longitude": 105.812341
+        },
+        {
+          "id": "STOP74",
+          "name": "18 Kim Mã",
+          "des": "Hồ Thủ Lệ",
+          "latitude": 21.029858,
+          "longitude": 105.810144
+        },
+        {
+          "id": "STOP75",
+          "name": "637 Kim Mã",
+          "des": "Công viên Thủ Lệ",
+          "latitude": 21.029170,
+          "longitude": 105.806327
+        },
+        {
+          "id": "STOP76",
+          "name": "78 Cầu Giấy",
+          "des": "Quận uỷ Cầu Giấy",
+          "latitude": 21.031794,
+          "longitude": 105.799667
+        },
+        {
+          "id": "STOP77",
+          "name": "300 Cầu Giấy",
+          "des": "Kho bạc Nhà nước",
+          "latitude": 21.034999,
+          "longitude": 105.794529
+        },
+        {
+          "id": "STOP78",
+          "name": "39 Trần Thái Tông",
+          "des": "Đối diện trường THCS Cầu Giấy",
+          "latitude": 21.031543,
+          "longitude": 105.788261
+        },
+        {
+          "id": "STOP79",
+          "name": "Ngõ 92 Trần Thái Tông",
+          "des": "Ngõ 92 Trần Thái Tông",
+          "latitude": 21.029263,
+          "longitude": 105.787693
+        },
+        {
+          "id": "STOP80",
+          "name": "Dịch Vọng Hậu - Tôn Thất Thuyết",
+          "des": "Dịch Vọng Hậu - Tôn Thất Thuyết",
+          "latitude": 21.027944,
+          "longitude": 105.785765
+        }
+      ]
+    }
+  }
+}

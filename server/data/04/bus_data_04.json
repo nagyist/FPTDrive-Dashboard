@@ -1,0 +1,231 @@
+{
+  "info": {
+    "id": "BUS0412001",
+    "serial": "07885ef8-f62c-3a56-849f-c91b3e5d6be8",
+    "route_id": "12"
+  },
+  "routes": {
+    "ab": {
+      "route_polyline": "{ts_Ck_zdS~@f@d@XTN??GZc@`Am@nAIRKTeA~Bk@nA??aGcDMIyAu@mAo@mAm@k@]uBiA??_@e@KOIOGQEOAMCQ?QA[?k@?]AYAMEUOg@Um@Wq@Qe@EYAE?EEM??GOA?UNSJe@NaAVsBd@iIfBiB`@kAVg@H_@Ho@PQJWVU\\U^UZSTKLQHwAr@m@XYRUTIPIRK^Of@GPGPGNINMPOPKJWRWRYPMHMJKJIJMZCLELGf@Il@Gf@CT_@|CC^AP@R@\\Bv@Dj@H~BFbAFx@Fv@Bt@DfC?nA?jBAzBAnAAbA?hA?r@@l@D|@H~AD|@FjAB\\Bf@?L@LAd@ALAz@@l@Bb@@j@AP?TAh@Bj@@f@Fj@FzABp@HbADh@Fp@Ft@Fr@@^AV?dAAZAVAzAEv@C`@?DK`AMt@Qr@ITg@nBc@`BGVCLAPCPAV?tACfAAxF?PATE\\Il@u@rG]pCQzAIp@Ox@CHCH?@CLAXARAX?^A^C`@EZGXGXGVM`@IRENGNCJCLCLA^??AXAj@Cf@El@Cf@CVEVKZSn@Kl@G`@I~@Et@A^CXAHCRMj@Ux@Op@YhA[hASn@Sj@gAhDq@vBQn@q@hD?JGVCJIREHe@hAEPCPAV@VLvHDf@PnABXPr@bApCj@|Av@nB@@Zj@^l@V\\RPd@Nr@NhDr@nB^r@J|ARVFJFLJHL??Fh@D|AANAJAFCFEFKFEBKDM@??OBc@BsBLO@qBRKBKFCBGFEFEFCF?DAF@JBP@LBLtAxIhB|J?@fBbKjAjH`AvF^nBf@tC`@xBRhAb@~B?FLr@Ll@Pt@Rn@Xt@l@bB^|@Z`AXz@JZ\tAPv@ZnBXpBd@hELjBT|DLzBDdAHdB@fA?x@Ej@??\\O??DU@g@Bc@?GF[Nk@LM??t@i@dAs@l@_@JGJCPEn@VdLrG~GpDdM~Gn@\\dAd@pBv@tBr@`C|@rDrAlC`AVJ^R`@XlE|CbCfBzDfCrCpBjAz@|@j@l@`@zAv@f@\\NHv@`@l@Z@?nBhAj@ZZPVNRLPFJDf@J??PO??DL?BBB@@DBv@Td@X`BbA\\RJFZL@?h@VDBbAr@RJf@XJFRJHD`@Jb@HPD`@NnBrAzDtCt@h@~@x@t@n@d@b@zAlClElHzElI??nEmA??|@pD",
+      "route_name": "Công viên nước Hồ Tây - Đại học Công nghiệp Hà Nội",
+      "bus_stop": [
+        {
+          "id": "STOP112",
+          "name": "680 Lạc Long Quân",
+          "des": "Công viên nước Hồ Tây",
+          "latitude": 21.077387,
+          "longitude": 105.815135
+        },
+        {
+          "id": "STOP113",
+          "name": "28 An Dương Vương",
+          "des": "28 An Dương Vương",
+          "latitude": 21.085353,
+          "longitude": 105.816349
+        },
+        {
+          "id": "STOP114",
+          "name": "Đối diện 197 An Dương Vương",
+          "des": "Đối diện 197 An Dương Vương",
+          "latitude": 21.090025,
+          "longitude": 105.811540
+        },
+        {
+          "id": "STOP115",
+          "name": "Đối diện 327 An Dương Vương",
+          "des": "Đối diện 327 An Dương Vương",
+          "latitude": 21.089737,
+          "longitude": 105.802881
+        },
+        {
+          "id": "STOP116",
+          "name": "Đối diện Làng Thượng Thuỵ - An Dương Vương",
+          "des": "Đối diện Làng Thượng Thuỵ - An Dương Vương",
+          "latitude": 21.089377,
+          "longitude": 105.797058
+        },
+        {
+          "id": "STOP117",
+          "name": "Đông Ngạc",
+          "des": "Đông Ngạc",
+          "latitude": 21.091980,
+          "longitude": 105.783094
+        },
+        {
+          "id": "STOP118",
+          "name": "Đông Ngạc - Thuỵ Phương",
+          "des": "Trung tâm Y tế quận Bắc Từ Liêm",
+          "latitude": 21.093527,
+          "longitude": 105.778794
+        },
+        {
+          "id": "STOP119",
+          "name": "Liên Mạc, Từ Liêm",
+          "des": "Liên Mạc, Từ Liêm",
+          "latitude": 21.090796,
+          "longitude": 105.766668
+        },
+        {
+          "id": "STOP120",
+          "name": "Liên Mạc, Từ Liêm",
+          "des": "Đối diện trường THCS Liên Mạc",
+          "latitude": 21.088312,
+          "longitude": 105.757344
+        },
+        {
+          "id": "STOP121",
+          "name": "Đường Yên Nội",
+          "des": "Đền Yên Nội",
+          "latitude": 21.083973,
+          "longitude": 105.749573
+        },
+        {
+          "id": "STOP122",
+          "name": "Đường Yên Nội, Từ Liêm",
+          "des": "Yên Nội - Trung Tựu",
+          "latitude": 21.073194,
+          "longitude": 105.743183
+        },
+        {
+          "id": "STOP123",
+          "name": "Phố Trung Tựu, Tự Liêm",
+          "des": "Trung Tựu - Võ Quý Huân",
+          "latitude": 21.066939,
+          "longitude": 105.739023
+        },
+        {
+          "id": "STOP124",
+          "name": "Phố Trung Tựu, Từ Liêm",
+          "des": "Nghĩa trang liệt sỹ Nhổn",
+          "latitude": 21.059061,
+          "longitude": 105.731568
+        },
+        {
+          "id": "STOP125",
+          "name": "Tây Tựu",
+          "des": "Ga Nhổn",
+          "latitude": 21.055878,
+          "longitude": 105.732452
+        },
+        {
+          "id": "STOP126",
+          "name": "QL32",
+          "des": "Đại học Công nghiệp Hà Nội",
+          "latitude": 21.053429,
+          "longitude": 105.733821
+        }
+      ]
+    },
+    "ba": {
+      "route_polyline": "uxo_C}pidS@D@B@@@@@@@?B?DAfAc@z@]B?B?B@PJDBD?J?J?PCj@If@EPA@@FDFDJF??xC}E|AiCL]??^I\\QRGNGJANGTE??^o@x@uAr@mAn@iAzCyEBG@C@E?E@GAG??|@}A`DsFtAsDJe@vCyJPu@l@yBn@oBv@kC`AcDTw@f@aBxAkFf@iBt@cCzAeFZkALa@L[|@cDtAyEz@oCFSNk@`BiGdBaG|BaI`@kB@CJ_@~@qDLe@pBwHZcA`AyDLe@ZiAl@gCRy@lC{Kt@eDhDgP???A@??A@?@A?A@??A?A@??A?A?A@A?A?AAA?A?A?AAA?AA??AAALm@|A}GdCaLRmAF_@TuA~@qFNw@r@yDNq@`A}E\\}ANw@Hk@H[RoAJeBBeB@iA?_A@WH}B??Di@@i@Ak@WESASA]@a@D[@[@q@CaBKaAEoACiAC_@AQBGBGDCDa@AyCC??kB?u@@aAF{@CgAEmJc@eI[??s@kBOaA?wBA{@?yE?Q?qJ?w@?k@?}C?gOAq@@q@?M?ICyC?o@@mEA_C?sB?wCAuJ?Y?gB@q@?W?i@AsHAwEAoB?g@AoC?{AA_@BkH?aDAw@AW?U?O@M@M??BADADCBCBC@ADEBEBCBI@G@G@I@G?IAIAECKAGCEEGCEECEEGCECIAGCE?C?G?E?G@G@G@IDQBK@Y@iACi@BQBKBGDKF??@`@AXCRCNELGFIHKFOFQF]H_Dt@YJWHa@P??wAPoBRqDVG?qGBkBAiC?{LB}H@mB?kTAC?e@Cg@E{@My@QMCQGq@U}DuBkAq@cAi@aHqDeB}@uEuBaAc@_KeE??CMAOE[Oi@Ia@??eCl@qXmIqE{AqCoAoFgCaGcD??P[JUR]JUz@oBNWbBmDDG??v@b@t@d@DB",
+      "route_name": "Đại học Công nghệp Hà Nội - Công viên nước Hồ Tây",
+      "bus_stop": [
+        {
+          "id": "STOP127",
+          "name": "82 QL32",
+          "des": "Đại học Công nghiệp Hà Nội",
+          "latitude": 21.052461,
+          "longitude": 105.735087
+        },
+        {
+          "id": "STOP128",
+          "name": "QL32",
+          "des": "Công ty CP Chế tạo Điện cơ Hà Nội",
+          "latitude": 21.047150,
+          "longitude": 105.746538
+        },
+        {
+          "id": "STOP129",
+          "name": "QL32",
+          "des": "Quốc lộ 32, Từ Liêm",
+          "latitude": 21.044041,
+          "longitude": 105.754533
+        },
+        {
+          "id": "STOP130",
+          "name": "57 Hồ Tùng Mậu",
+          "des": "Đại học Thương Mại",
+          "latitude": 21.037589,
+          "longitude": 105.774313
+        },
+        {
+          "id": "STOP131",
+          "name": "2 Hồ Tùng Mậu",
+          "des": "2 Hồ Tùng Mậu",
+          "latitude": 21.036476,
+          "longitude": 105.778554
+        },
+        {
+          "id": "STOP132",
+          "name": "Phạm Văn Đồng",
+          "des": "Đại học Ngoại Ngữ",
+          "latitude": 21.040291,
+          "longitude": 105.780989
+        },
+        {
+          "id": "STOP133",
+          "name": "126 Phạm Văn Đồng",
+          "des": "Đại học Nguyễn Trãi",
+          "latitude": 21.044377,
+          "longitude": 105.781279
+        },
+        {
+          "id": "STOP134",
+          "name": "451 Hoàng Quốc Việt",
+          "des": "Viện Khoa học Đo đạc và Bản đố",
+          "latitude": 21.046029,
+          "longitude": 105.783983
+        },
+        {
+          "id": "STOP135",
+          "name": "423 Hoàng Quốc Việt",
+          "des": "Học viện Chính trị Quốc gia Hồ Chí Minh",
+          "latitude": 21.046029,
+          "longitude": 105.787362
+        },
+        {
+          "id": "STOP136",
+          "name": "108 Hoàng Quốc Việt",
+          "des": "Hoàng Quốc Việt - Tô Hiệu",
+          "latitude": 21.046109,
+          "longitude": 105.796482
+        },
+        {
+          "id": "STOP137",
+          "name": "14 Hoàng Quốc Việt",
+          "des": "Vietnam National Museum of Nature",
+          "latitude": 21.046039,
+          "longitude": 105.804056
+        },
+        {
+          "id": "STOP138",
+          "name": "Võ Chí Công",
+          "des": "Ngõ 445 Lạc Long Quân",
+          "latitude": 21.056142,
+          "longitude": 105.804485
+        },
+        {
+          "id": "STOP139",
+          "name": "Võ Chí Công - Xuân La",
+          "des": "Võ Chí Công - Xuân La",
+          "latitude": 21.064101,
+          "longitude": 105.805494
+        },
+        {
+          "id": "STOP140",
+          "name": "Võ Chí Công - Ngõ 612 Lạc Long Quân",
+          "des": "Võ Chí Công - Ngõ 612 Lạc Long Quân",
+          "latitude": 21.077206,
+          "longitude": 105.812114
+        },
+        {
+          "id": "STOP141",
+          "name": "Lạc Long Quân - Âu Cơ",
+          "des": "Công viên nước Hồ Tây",
+          "latitude": 21.075675,
+          "longitude": 105.816137
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "info": {
+    "id": "BUS0405001",
+    "serial": "33d1ddff-aeb8-38a1-a00d-3c2cf31bc62e",
+    "route_id": "05"
+  },
+  "routes": {
+    "ab": {
+      "route_polyline": "cdi_CcexdSj@iEX_Dh@oDn@yFxDjBbElBzDbB~Az@@ARi@u@_@UmApAaDrD}Jf@{AbEaKt@}BlAkCdFoInCgEtCeErFmIhCkCtCeCtBuB~AyAn@aAN[f@wAZ_@pAmBTcATwARo@N]hAiDbC{GfAgDf@mADQt@oBfCgGFUSMmB}Ba@m@_@c@oD}EcAmAOMGAi@m@oBoC}AmBsAsBcByB[YQm@AO?e@bCwApA{@TSDMzEiFf@u@\\q@b@eA`@}AVoAPeC?{@C_CGqB[_G?SFUu@cLoAcM]oFG_DBoAgBGqCCwJa@kHSeA@{HZgIh@mBGwD[oCc@wRoCuBSyDk@mBUuF_A{B[cPuA",
+      "route_name": "Đại học Ngoại Thương - Hồ Gươm",
+      "bus_stop": [
+        {
+          "id": "STOP01",
+          "name": "Chùa Láng - Nguyễn Chí Thanh",
+          "des": "Học viện Thanh Thiếu niên Việt Nam",
+          "latitude": 21.022913,
+          "longitude": 105.808751
+        },
+        {
+          "id": "STOP02",
+          "name": "Pháo Đài Láng - Nguyễn Chí Thanh",
+          "des": "Gần Học viện Phụ nữ Việt Nam",
+          "latitude": 21.019901,
+          "longitude": 105.808116
+        },
+        {
+          "id": "STOP03",
+          "name": "27-103 Huỳnh Thúc Kháng",
+          "des": "Đối diện Trung tâm Nghệ Thuật Âu Cơ",
+          "latitude": 21.018082,
+          "longitude": 105.812024
+        },
+        {
+          "id": "STOP04",
+          "name": "106-110 Huỳnh Thúc Kháng",
+          "des": "Đài Phát Thanh và Truyền hình Hà Nội",
+          "latitude": 21.017123,
+          "longitude": 105.813999
+        },
+        {
+          "id": "STOP05",
+          "name": "Láng Hạ - Thái Hà",
+          "des": "Đối diện Trung tâm Chiếu phim Quốc Gia",
+          "latitude": 21.016188,
+          "longitude": 105.815473
+        },
+        {
+          "id": "STOP06",
+          "name": "I11 Thái Hà",
+          "des": "Cửa hàng quần áo M2",
+          "latitude": 21.014384,
+          "longitude": 105.818078
+        },
+        {
+          "id": "STOP07",
+          "name": "Ngõ 133 Thái Hà",
+          "des": "Ngõ 133 Thái Hà",
+          "latitude": 21.013485,
+          "longitude": 105.819267
+        },
+        {
+          "id": "STOP08",
+          "name": "Siêu thị Thế giới Di Động",
+          "des": "Siêu thị Thế giới Di Động",
+          "latitude": 21.010656,
+          "longitude": 105.822339
+        },
+        {
+          "id": "STOP09",
+          "name": "Parkson",
+          "des": "Parkson",
+          "latitude": 21.009680,
+          "longitude": 105.823639
+        },
+        {
+          "id": "STOP10",
+          "name": "Ngõ 95 Chùa Bộc",
+          "des": "Ngõ 95 Chùa Bộc",
+          "latitude": 21.007365,
+          "longitude": 105.828547
+        },
+        {
+          "id": "STOP11",
+          "name": "Số 1 Chùa Bộc",
+          "des": "Ngã tư Chùa Bộc - Phạm Ngọc Thạch",
+          "latitude": 21.006259,
+          "longitude": 105.830826
+        },
+        {
+          "id": "STOP12",
+          "name": "14-101 Phạm Ngọc Thạch",
+          "des": "Quán ăn ngon",
+          "latitude": 21.008876,
+          "longitude": 105.834404
+        },
+        {
+          "id": "STOP13",
+          "name": "105 Phạm Ngọc Thạch",
+          "des": "GoGi House Kim Liên",
+          "latitude": 21.010436,
+          "longitude": 105.836376
+        },
+        {
+          "id": "STOP14",
+          "name": "210 Xã Đàn",
+          "des": "Trường Tiểu học Phương Liên",
+          "latitude": 21.010499,
+          "longitude": 105.837357
+        },
+        {
+          "id": "STOP15",
+          "name": "Hầm Kim Liên",
+          "des": "Ngã tư Xã Đàn - Lê Duẩn - Giải Phóng - Đại Cồ Việt",
+          "latitude": 21.007727,
+          "longitude": 105.840905
+        },
+        {
+          "id": "STOP16",
+          "name": "45 Đại Cồ Việt",
+          "des": "Bộ Giáo dục và Đào tạo",
+          "latitude": 21.008238,
+          "longitude": 105.847793
+        },
+        {
+          "id": "STOP17",
+          "name": "11-15 Đại Cồ Việt",
+          "des": "Lotteria Đại Cồ Việt",
+          "latitude": 21.008609,
+          "longitude": 105.850759
+        },
+        {
+          "id": "STOP18",
+          "name": "193 Phố Huế",
+          "des": "Viện Răng Hàm Mặt Quốc Gia",
+          "latitude": 21.013356,
+          "longitude": 105.851773
+        },
+        {
+          "id": "STOP19",
+          "name": "28-30 Phố Huế",
+          "des": "Trường THCS Ngô Sĩ Liên",
+          "latitude": 21.018889,
+          "longitude": 105.851719
+        },
+        {
+          "id": "STOP20",
+          "name": "4 Hàng Bài",
+          "des": "Rạp Kim Đồng",
+          "latitude": 21.023842,
+          "longitude": 105.852819
+        },
+        {
+          "id": "STOP21",
+          "name": "69 Đinh Tiên Hoàng",
+          "des": "UBND Thành phố Hà Nội",
+          "latitude": 21.028745,
+          "longitude": 105.853781
+        }
+      ]
+    },
+    "ba": {
+      "route_polyline": "_hj_CiqaeSi@AeDEUJ_@Na@Lq@^w@ZeAh@MHCBEHCPe@lG??A?A@A?A?A@A??@A?A@A@A@?@A@?@?@?@A@?@?@?@?@@@?@?@@@?@k@D??K|B^p@jDnG??Zl@Xl@r@fBfAjCtAhD|ChHz@jB|@hBBJ??FP@BBLb@hAELGHGFIF{@n@s@p@WRmDpDM\\{@n@o@n@??MpAAFKv@aAjIAPy@nHOtAKdAyA~Kc@xDC\\??_AvIGp@ATIz@KbAK|@L~A^pC??PpAJ~@l@lFt@hGXvCDr@^jGR|B`@nE|ApTXxD\\`EAvCCbBBhA\\pFF`A??DbA\\Jh@Jb@FpB^r@J??x@Nn@FJ@D?PElEt@lB\r@PpBb@pAh@|@f@x@j@tDlBdAh@n@ZtBbA??i@xEE^AD",
+      "route_name": "Hồ Gươm - Đại học Ngoại Thương",
+      "bus_stop": [
+        {
+          "id": "STOP33",
+          "name": "57 Đinh Tiên Hoàng",
+          "des": "Nhà hát múa rối nước Thăng Long",
+          "latitude": 21.031565,
+          "longitude": 105.853179
+        },
+        {
+          "id": "STOP34",
+          "name": "41 Hàng Gai",
+          "des": "Hàng Gai - Tô Tịch",
+          "latitude": 21.032165,
+          "longitude": 105.850381
+        },
+        {
+          "id": "STOP35",
+          "name": "49 Hàng Bông",
+          "des": "Hàng Bông - Ngõ Tạm Thương",
+          "latitude": 21.030844,
+          "longitude": 105.848074
+        },
+        {
+          "id": "STOP36",
+          "name": "112 Hàng Bông",
+          "des": "Hanoi City Palace Hotel",
+          "latitude": 21.029805,
+          "longitude": 105.846167
+        },
+        {
+          "id": "STOP37",
+          "name": "196 Hàng Bông",
+          "des": "Nhà hàng Nét Huế",
+          "latitude": 21.028666,
+          "longitude": 105.844108
+        },
+        {
+          "id": "STOP38",
+          "name": "12 Điện Biên Phủ",
+          "des": "Điện Biên Phủ - Tôn Thất Thiệp",
+          "latitude": 21.029299,
+          "longitude": 105.842473
+        },
+        {
+          "id": "STOP39",
+          "name": "26A Điện Biên Phủ",
+          "des": "Đối diện Đại sứ quán Đan Mạch",
+          "latitude": 21.030269,
+          "longitude": 105.841445
+        },
+        {
+          "id": "STOP40",
+          "name": "35 Trần Phú",
+          "des": "Công viên Lênin",
+          "latitude": 21.031026,
+          "longitude": 105.839294
+        },
+        {
+          "id": "STOP41",
+          "name": "48 Trần Phú",
+          "des": "Cục Lãnh sự Bộ Ngoại giao Việt Nam",
+          "latitude": 21.031379,
+          "longitude": 105.837401
+        },
+        {
+          "id": "STOP42",
+          "name": "62E Trần Phú",
+          "des": "UBND phường Điện Biên",
+          "latitude": 21.032334,
+          "longitude": 105.832609
+        },
+        {
+          "id": "STOP43",
+          "name": "92 Kim Mã",
+          "des": "Kim Mã - Giang Văn Minh",
+          "latitude": 21.032197,
+          "longitude": 105.827214
+        },
+        {
+          "id": "STOP44",
+          "name": "202-208 Kim Mã",
+          "des": "Trường Đại học RMIT",
+          "latitude": 21.031490,
+          "longitude": 105.822769
+        },
+        {
+          "id": "STOP45",
+          "name": "315 Kim Mã",
+          "des": "315 Kim Mã",
+          "latitude": 21.030782,
+          "longitude": 105.817862
+        },
+        {
+          "id": "STOP46",
+          "name": "477 Kim Mã",
+          "des": "Ngã tư Kim Mã - Nguyễn Chí Thanh - Liễu Giai",
+          "latitude": 21.030437,
+          "longitude": 105.813640
+        },
+        {
+          "id": "STOP47",
+          "name": "Nguyễn Chí Thanh",
+          "des": "Hồ Ngọc Khánh",
+          "latitude": 21.027862,
+          "longitude": 105.812205
+        },
+        {
+          "id": "STOP48",
+          "name": "8 Nguyễn Chí Thanh",
+          "des": "Khách sạn Bảo Sơn",
+          "latitude": 21.024417,
+          "longitude": 105.810689
+        },
+        {
+          "id": "STOP49",
+          "name": "56 Nguyễn Chí Thanh",
+          "des": "Vincom Nguyễn Chí Thanh",
+          "latitude": 21.023113,
+          "longitude": 105.809923
+        },
+        {
+          "id": "STOP50",
+          "name": "4 Chùa Láng",
+          "des": "Đối diện Học viện Thanh Thiếu niên Việt Nam",
+          "latitude": 21.022951,
+          "longitude": 105.808695
+        }
+      ]
+    }
+  }
+}
