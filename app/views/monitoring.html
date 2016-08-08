@@ -93,10 +93,11 @@ rel="stylesheet">
 			</p>
 			<h3 id="iot-part-gps">GPS</h3>
 			<p>
-				<span class="bold">Started: </span> 6:00 2/9/2015 <span class="bold iot-lbl-finish">Finish: </span> 6:00 25/9/2015 <span class="bold iot-lbl-finish">Distance: </span> {{distance_to_end}} KM
+				<span class="bold">Lộ trình: </span>{{bus_route_name}} <span class="bold iot-lbl-finish">Distance: </span> {{distance_to_end}} KM
 			</p>
 			<p>
 				<span class="bold">Next Bus: </span> {{next_bus_stop_name}} ({{next_bus_stop_des}})<span class="bold iot-lbl-finish">Distance: </span> {{next_bus_stop_distance}}
+				KM
 			</p>
 			<ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" bounds="map.bounds">
 				<ui-gmap-markers idKey="'id'" models="markers" options="'markerOptions'" coords="'self'" icon="'icon'" click="onClickMarker">

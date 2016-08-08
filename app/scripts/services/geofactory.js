@@ -48,6 +48,8 @@ function($rootScope) {
 	};
 
 	funcs.geo_distance = function(lat1, lon1, lat2, lon2, unit) {
+		if (lat1==lat2 && lon1==lon2) return 0;//TODO: improve later
+		
 		var radlat1 = Math.PI * lat1 / 180;
 		var radlat2 = Math.PI * lat2 / 180;
 		var theta = lon1 - lon2;
@@ -62,6 +64,7 @@ function($rootScope) {
 		if (unit == "N") {
 			dist = dist * 0.8684;
 		}
+		if (dist == NaN) return 0;
 		return dist;
 	};
 
@@ -165,24 +168,6 @@ function($rootScope) {
 
 		return coordinates;
 	};
-
-	funcs.geo_distance = function(lat1, lon1, lat2, lon2, unit) {
-		var radlat1 = Math.PI * lat1 / 180;
-		var radlat2 = Math.PI * lat2 / 180;
-		var theta = lon1 - lon2;
-		var radtheta = Math.PI * theta / 180;
-		var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-		dist = Math.acos(dist);
-		dist = dist * 180 / Math.PI;
-		dist = dist * 60 * 1.1515;
-		if (unit == "K") {
-			dist = dist * 1.609344;
-		}
-		if (unit == "N") {
-			dist = dist * 0.8684;
-		}
-		return dist;
-	};
 	
 	funcs.distanceOnRoute = function(x1, y1, x2, y2, route) {
 		if (typeof route === 'undefined') return -1;
@@ -210,12 +195,12 @@ function($rootScope) {
 			dis = funcs.geo_distance(x1, y1, x2, y2, "K");
 		}
 	
-		if (dis == -1) {
-			dis = {
-				error: "passed",
-				distance: funcs.geo_distance(x1, y1, x2, y2, "K")
-			};
-		}
+		// if (dis == -1) {
+			// dis = {
+				// error: "passed",
+				// distance: funcs.geo_distance(x1, y1, x2, y2, "K")
+			// };
+		// }
 		
 		return dis;
 	};

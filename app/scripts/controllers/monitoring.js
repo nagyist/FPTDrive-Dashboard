@@ -18,21 +18,29 @@ function($scope, $location, $anchorScroll, $interval, uiGmapGoogleMapApi, Socket
 		draggable : false,
 		scrollwheel : false
 	};
-
+	
 	$scope.updateBusId = function() {
 		console.log("$scope.updateBusId: " + JSON.stringify($scope.selectedBusID));
 		bus_selected_index = $scope.selectedBusID.id - 1;
+		$scope.bus_route_name = "";
+		$scope.direction = null;
+		$scope.nextBusStop = null;
+		$scope.direction = null;
+		$scope.bus_all_info = null;
+		$scope.route = null;
+		$scope.lat_end = null;
+		$scope.lon_end = null;
 		
 		//change to route_id later
 		$http.get("/api/bus/route/0" + (bus_selected_index+1)).then(function(res) {
-			//console.log("monitoring: " + JSON.stringify(res.data.routes.ab));
-			$scope.bus_all_info = res.data;
+			console.log("monitoring updated route from server");
+			var bus_all_info = res.data;
 			
 			$scope.map.polygons = [];//.splice(0, 1)
 			$scope.map.polygons.push({
 				id : bus_selected_index + 1,
 				//geotracks : GeoCalc.polyline_decode_geotracks(BusFactory.getPolyRoute(bus_selected_index)),
-				geotracks : GeoCalc.polyline_decode_geotracks($scope.bus_all_info.routes.ab.route_polyline),
+				geotracks : GeoCalc.polyline_decode_geotracks(bus_all_info.routes.ab.route_polyline),
 				clickable : true,
 				visible : true
 			});
@@ -40,16 +48,13 @@ function($scope, $location, $anchorScroll, $interval, uiGmapGoogleMapApi, Socket
 			$scope.map.polygons.push({
 				id : (bus_selected_index + 1)*3,
 				//geotracks : GeoCalc.polyline_decode_geotracks(BusFactory.getPolyRoute(bus_selected_index)),
-				geotracks : GeoCalc.polyline_decode_geotracks($scope.bus_all_info.routes.ba.route_polyline),
+				geotracks : GeoCalc.polyline_decode_geotracks(bus_all_info.routes.ba.route_polyline),
 				clickable : true,
 				visible : true
 			});
 			
-			$scope.route_ab = GeoCalc.polyline_decode($scope.bus_all_info.routes.ab.route_polyline);
-			$scope.route_ba = GeoCalc.polyline_decode($scope.bus_all_info.routes.ab.route_polyline);
-			
-			$scope.direction = 0;
-			$scope.route = $scope.route_ab;
+			$scope.route_ab = GeoCalc.polyline_decode(bus_all_info.routes.ab.route_polyline);
+			$scope.route_ba = GeoCalc.polyline_decode(bus_all_info.routes.ba.route_polyline);
 			
 			$scope.route_ab.forEach(function(element, index, arr){
 				if (index < arr.length -1){
@@ -66,32 +71,35 @@ function($scope, $location, $anchorScroll, $interval, uiGmapGoogleMapApi, Socket
 					arr[index].push(0);
 				}
 			});
-			
-			
-			
-			$scope.lat_end = $scope.route[$scope.route.length -1][0];
-			$scope.lon_end = $scope.route[$scope.route.length -1][1];
 					
 			_markers.forEach(function(element, index, array) {
 				element.latitude = 0;
 				element.longitude = 0;
 			});
-			$scope.bus_all_info.routes.ab.bus_stop.forEach(function(element, index, array){
-				_markers[index].latitude = element.latitude;
-				_markers[index].longitude = element.longitude;
+			_markers[0].latitude = $scope.route_ab[0][0];
+			_markers[0].longitude =$scope.route_ab[0][1];
+			_markers[0].icon = {url:"/images/bus-red.png",scaledSize:{width:50,height:50}};
+			
+			_markers[_markers.length-1].latitude = $scope.route_ab[$scope.route_ab.length -1][0];
+			_markers[_markers.length-1].longitude = $scope.route_ab[$scope.route_ab.length -1][1];
+			_markers[_markers.length-1].icon = {url:"/images/bus-red.png",scaledSize:{width:50,height:50}};
+			
+			bus_all_info.routes.ab.bus_stop.forEach(function(element, index, array){
+				_markers[index + 1].latitude = element.latitude;
+				_markers[index + 1].longitude = element.longitude;
 			});
-			$scope.bus_all_info.routes.ba.bus_stop.forEach(function(element, index, array){
-				_markers[$scope.bus_all_info.routes.ab.bus_stop.length + index].latitude = element.latitude;
-				_markers[$scope.bus_all_info.routes.ab.bus_stop.length + index].longitude = element.longitude;
+			bus_all_info.routes.ba.bus_stop.forEach(function(element, index, array){
+				_markers[bus_all_info.routes.ab.bus_stop.length + index + 1].latitude = element.latitude;
+				_markers[bus_all_info.routes.ab.bus_stop.length + index + 1].longitude = element.longitude;
 			});
+			
+			$scope.bus_all_info = bus_all_info;
 		});
 		
 		
 		 
 		
 		$scope.bus_info = DeviceFactory.getBusInfo(bus_selected_index);
-		$scope.nextBusStop = null;
-		console.log("Update BUS ID " + (bus_selected_index) + "(lat;lon) = " + $scope.lat_end + ";" + $scope.lon_end);
 	};
 
 	$http.get("/api/bus").then(function(res) {
@@ -374,17 +382,17 @@ function($scope, $location, $anchorScroll, $interval, uiGmapGoogleMapApi, Socket
 		
 		if (busId == parseInt($scope.selectedBusID.id)) {
 			$scope.nextBusStop = null;
+			$scope.bus_route_name = "";
+			$scope.direction = null;
+			$scope.route = null;
+			$scope.lat_end = null;
+			$scope.lon_end = null;
 			console.log("Monitoring: Reset status");
-			
-			if (data.direction == 0) {
-				$scope.route = $scope.route_ab;
-			} else {
-				$scope.route = $scope.route_ba;
-			}
 		}
 	});
 	SocketFactory.on('/fptdrive/gps', function(msg) {
 		if (typeof $scope.selectedBusID == 'undefined') return;
+		if ($scope.bus_all_info == null) return;
 		
 		//console.log('/fptdrive/gps: ' + JSON.stringify(msg));
 		if ( typeof msg === 'string')
@@ -397,18 +405,28 @@ function($scope, $location, $anchorScroll, $interval, uiGmapGoogleMapApi, Socket
 			lat = data.latitude;
 			lng = data.longitude;
 			direction = data.direction;
-			if ($scope.direction != direction) {
+			if ($scope.direction != direction && $scope.bus_all_info) {
 				$scope.direction = direction;
+				$scope.nextBusStop = null;
 				if (direction == 0) {
 					$scope.route = $scope.route_ab;
+					$scope.bus_route_name = $scope.bus_all_info.routes.ab.route_name;
 				} else {
 					$scope.route = $scope.route_ba;
+					$scope.bus_route_name = $scope.bus_all_info.routes.ba.route_name;
 				}
+				
+				$scope.lat_end = $scope.route[$scope.route.length -1][0];
+				$scope.lon_end = $scope.route[$scope.route.length -1][1];
+				
+				console.log("Monitoring changed direction from gps", $scope.direction, direction, $scope.lat_end);
 			}
 			_marker.coords.latitude = parseFloat(data.latitude);
 			_marker.coords.longitude = parseFloat(data.longitude);
 			//console.log('/fptdrive/gps:  ' + ($scope.selectedBusID.id) + " - " + busId);
+			if ($scope.route == null) return;
 			dis = GeoCalc.distanceOnRoute(lat, lng, $scope.lat_end, $scope.lon_end, $scope.route) ;//Math.random()%1000;
+			console.log("Monitoring dis",JSON.stringify(dis),$scope.lat_end, $scope.lon_end,lat, lng);
 			dis = Math.floor(dis * 1000) / 1000;
 			$scope.distance_to_end = dis;
 			
@@ -423,7 +441,7 @@ function($scope, $location, $anchorScroll, $interval, uiGmapGoogleMapApi, Socket
 				if ($scope.nextBusStop == null) {
 					for (var i = 0; i< bs.length; i++)
 						if (GeoCalc.distanceOnRoute(bs[i].latitude, bs[i].longitude, $scope.lat_end, $scope.lon_end, $scope.route) < $scope.distance_to_end) {
-							console.log("Next bus stop 1: " + bs[i].name + " - " + bs[i].id);
+							console.log("Next bus stop 1: " + bs[i].name + " - " + bs[i].id, "index =", i);
 							$scope.nextBusStop = i;
 							break;
 						}
@@ -431,9 +449,9 @@ function($scope, $location, $anchorScroll, $interval, uiGmapGoogleMapApi, Socket
 						if ($scope.nextBusStop < bs.length - 1) {
 							$scope.nextBusStop++;
 						}
-						console.log("Next bus stop 2: " + bs[$scope.nextBusStop].name + " - " + bs[$scope.nextBusStop].id);
+						console.log("Next bus stop 2: " + bs[$scope.nextBusStop].name + " - " + bs[$scope.nextBusStop].id, "index =", $scope.nextBusStop);
 				}
-				if ($scope.nextBusStop){
+				if ($scope.nextBusStop != null){
 					$scope.next_bus_stop_name = bs[$scope.nextBusStop].name;
 					$scope.next_bus_stop_des = bs[$scope.nextBusStop].des;
 					dis = GeoCalc.distanceOnRoute(lat, lng, bs[$scope.nextBusStop].latitude, bs[$scope.nextBusStop].longitude, $scope.route);
